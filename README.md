@@ -5,7 +5,7 @@
  - [Henry Koch](https://github.com/hkniner), Developer / Co-PM
  - [Nick](https://github.com/Nicholas-Munro), Designer
  - [Stephen](https://github.com/stephenm05), Developer
- - Ryan, Developer
+ - [Ryan](https://github.com/ryanshorey), Developer
  - [Jaron](https://github.com/blarnix), Developer
 ## Team Schedule:
 **Fridays:** 1:00 - 2:00PM *Sprint Planning Meeting [Temp]*<br> 
