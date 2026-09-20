@@ -14,7 +14,7 @@
 ## Mission Statement:
 TBD - dependent on Prob Statement
 ## Proposed Problem Statements:
-TBD - 
+Empowering users to build effective AI habits aligned with long-term goals
 ***
 ## Build Instructions:
 1. Clone the repository: ```git clone https://github.com/COS420-F25/F26-TeamB.git```
