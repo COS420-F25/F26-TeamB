@@ -10,12 +10,11 @@
 ## Team Schedule:
 [Temp] Sprint Planning: Fridays: 1:00 - 2:00PM<br> 
 [Temp] Retroactive: Sundays: 12:00 - 1:00PM<br> 
-
 <br>
-**Synchronous Meeting Structure:** (T~60m)
-* Sprint Kickoff (30+m)
-* Task Management (~15m)
-* Run-over time (~15m)
+### Synchronous Meeting Structure: (T~60m)
+- Sprint Kickoff (30+m)
+- Task Management (~15m)
+- Run-over time (~15m)
 ## Mission Statement:
 TBD - dependent on Prob Statement
 ## Proposed Problem Statements:
