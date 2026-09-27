@@ -3,8 +3,8 @@
 ## Team Members:
  - [Er3te](https://github.com/Er3te), *PM / Designer*
  - [Henry Koch](https://github.com/hkniner), *Co-PM / Developer*
- - [Jaron](https://github.com/blarnix), *Developer Lead*
- - [Stephen](https://github.com/stephenm05), *Co-Developer*
+ - [Jaron](https://github.com/blarnix), *Lead Developer*
+ - [Stephen](https://github.com/stephenm05), *Co-Lead Developer*
  - [Ryan](https://github.com/ryanshorey), *Developer*
  - [Nick](https://github.com/Nicholas-Munro), *Designer*
 ## Mission Statement:
