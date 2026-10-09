@@ -21,5 +21,7 @@ Building expertise takes time, experimentation, and reflection, and to build tha
 
 ## Build Instructions:
 1. Clone the repository: ```git clone https://github.com/COS420-F25/F26-TeamB.git```
-2. Navigate to the project directory
-3. Do nothing, since we haven’t done anything yet!
+2. Navigate to the project directory: ```cd F26-TeamB```
+3. Navigate to the app directory: ```cd kaite```
+4. **First time only** run: ```npm install```
+5. Launch the app: ```npm run start```
