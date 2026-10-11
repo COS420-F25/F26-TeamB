@@ -19,8 +19,30 @@ Building expertise takes time, experimentation, and reflection, and to build tha
 
 
 ***
+## Prerequisites:
+- A computer
+- A shell
+- NPM
+- git
 
 ## Build Instructions:
-1. Clone the repository: ```git clone https://github.com/COS420-F25/F26-TeamB.git```
-2. Navigate to the project directory
-3. Do nothing, since we haven’t done anything yet!
+1. Clone the repository:
+```bash
+git clone https://github.com/COS420-F25/F26-TeamB.git
+```
+2. Navigate to the project directory:
+```bash
+cd F26-TeamB
+```
+3. Navigate to the app directory:
+```bash
+cd kaite
+```
+4. **First time only** run:
+```bash
+npm install
+```
+5. Launch the app:
+```bash
+npm run start
+```
