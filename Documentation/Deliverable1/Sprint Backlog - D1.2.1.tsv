@@ -1,7 +1,7 @@
 Title	URL	Status	Priority	Story Type	Estimate (Story Points)	Points Completed	Assignees	Contributors and % contribution	QC	Start date	End date (ready for QC by)	Deliverable / Sprint	Milestone
 D1 GitHub Documentation Archival	https://github.com/COS420-F25/F26-TeamB/issues/85	Done					Er3te		Co-PM / hkniner	Oct 4, 2026	Oct 12, 2026	D1	Deliverable 1
 Overall Final QC review of D1 deliverables for submission	https://github.com/COS420-F25/F26-TeamB/issues/93	Done					Er3te			Oct 10, 2026	Oct 14, 2026	D1	Deliverable 1
-Export Sprint Backlog after completion of D1 deliverable	https://github.com/COS420-F25/F26-TeamB/issues/69	Quality Checking					hkniner		PM / Er3te	Oct 4, 2026	Oct 12, 2026	D1	Deliverable 1
+Export Sprint Backlog after completion of D1 deliverable	https://github.com/COS420-F25/F26-TeamB/issues/69	Done					hkniner		PM / Er3te	Oct 4, 2026	Oct 12, 2026	D1	Deliverable 1
 Export Product Backlog at end of D1 deliverable	https://github.com/COS420-F25/F26-TeamB/issues/71	Done					Er3te		Co-PM / hkniner	Oct 4, 2026	Oct 12, 2026	D1	Deliverable 1
 Report Scrum participation to documentation 10/10/26	https://github.com/COS420-F25/F26-TeamB/issues/139	Done					Er3te			Oct 10, 2026	Oct 11, 2026	D1	Deliverable 1
 Create 2-3 UI low-fidelity mockups/wireframes	https://github.com/COS420-F25/F26-TeamB/issues/83	Done					Nicholas-Munro		Dev / RyanS	Oct 4, 2026	Oct 10, 2026	D1	Deliverable 1
@@ -9,10 +9,11 @@ Figure out how to and create Sprint Review tasks	https://github.com/COS420-F25/F
 Create Agenda for 10/9/26 Sprint Planning Meeting	https://github.com/COS420-F25/F26-TeamB/issues/106	Done					Er3te			Oct 7, 2026	Oct 9, 2026	D1	Deliverable 1
 Manage User Story items in the Product Backlog	https://github.com/COS420-F25/F26-TeamB/issues/70	Done					Er3te		Co-PM / hkniner	Oct 4, 2026	Oct 6, 2026	D1	Deliverable 1
 Create User Stories Tasks	https://github.com/COS420-F25/F26-TeamB/issues/72	Done					Er3te		Co-PM / hkniner	Oct 4, 2026	Oct 8, 2026	D1	Deliverable 1
+Conduct research on LLM training to know how to manipulate the model being used	https://github.com/COS420-F25/F26-TeamB/issues/98	Done					hkniner		Lead Dev / Blarnix	Oct 7, 2026	Oct 10, 2026	D1	Deliverable 1
 Make sprint review template	https://github.com/COS420-F25/F26-TeamB/issues/75	Done					Er3te			Oct 2, 2026	Oct 6, 2026	D1	Deliverable 1
 Break up how "End of D1 overall QC" will be handled	https://github.com/COS420-F25/F26-TeamB/issues/73	Done					Er3te			Oct 4, 2026	Oct 6, 2026	D1	Deliverable 1
-"User Story" doc: Add User Story Grouping A	https://github.com/COS420-F25/F26-TeamB/issues/21	Done					hkniner			Sep 24, 2026	Sep 28, 2026	D1	Deliverable 0
-Set up CollaborAITE	https://github.com/COS420-F25/F26-TeamB/issues/31	Done					Er3te			Oct 1, 2026	Oct 6, 2026	D1	Deliverable 1
+"User Story" doc: Add User Story Grouping A	https://github.com/COS420-F25/F26-TeamB/issues/21	Done					hkniner			Sep 24, 2026	Sep 28, 2026	D1	Deliverable 1
+Set up CollaborAITE	https://github.com/COS420-F25/F26-TeamB/issues/31	Done					Er3te			Oct 1, 2026	Oct 10, 2026	D1	Deliverable 1
 Create Agenda for 10/2/26 [True] Retrospective Meeting	https://github.com/COS420-F25/F26-TeamB/issues/51	Done					Er3te			Oct 1, 2026	Oct 2, 2026	D1	Deliverable 1
 Update/clean up training refs	https://github.com/COS420-F25/F26-TeamB/issues/50	Done					Er3te			Oct 1, 2026	Oct 6, 2026	D1	Deliverable 1
 Post-class / pre-next sprint planning needs	https://github.com/COS420-F25/F26-TeamB/issues/65	Done					Er3te			Oct 1, 2026	Oct 4, 2026	D1	Deliverable 1
@@ -42,6 +43,7 @@ Address feedback for Prior Solutions 3	https://github.com/COS420-F25/F26-TeamB/i
 Create Meeting Notes for 10/4/26	https://github.com/COS420-F25/F26-TeamB/issues/94	Done					Er3te			Oct 4, 2026	Oct 6, 2026	D1	Deliverable 1
 Reproducing and QC the build instructions	https://github.com/COS420-F25/F26-TeamB/issues/97	Done					Blarnix			Oct 4, 2026	Oct 12, 2026	D1	Deliverable 1
 Overview QC of the SRS for D1	https://github.com/COS420-F25/F26-TeamB/issues/92	Done					hkniner			Oct 4, 2026	Oct 14, 2026	D1	Deliverable 1
+Address Feedback for User Stories (Grouping B)	https://github.com/COS420-F25/F26-TeamB/issues/99	Done					stephenm05			Oct 5, 2026	Oct 6, 2026	D1	Deliverable 1
 Address Feedback for User Stories (Grouping A)	https://github.com/COS420-F25/F26-TeamB/issues/100	Done					hkniner			Oct 5, 2026	Oct 6, 2026	D1	Deliverable 1
 Check that all comments were addressed on the User Statement prior to re-submission	https://github.com/COS420-F25/F26-TeamB/issues/104	Done					Er3te			Oct 5, 2026	Oct 14, 2026	D1	Deliverable 1
 Update certain tasks with the updated clarification info from the professor	https://github.com/COS420-F25/F26-TeamB/issues/107	Done					Er3te			Oct 6, 2026	Oct 10, 2026	D1	Deliverable 1
@@ -54,7 +56,7 @@ Address optional feedback in the Problem Statement	https://github.com/COS420-F25
 Address feedback for the App Description	https://github.com/COS420-F25/F26-TeamB/issues/103	Done					Er3te		Co-PM / hkniner	Oct 5, 2026	Oct 10, 2026	D1	Deliverable 1
 Update Task Management Policy to a Quality Control (QC) Policy	https://github.com/COS420-F25/F26-TeamB/issues/29	Done					Er3te		Co-PM / hkniner	Oct 1, 2026	Oct 10, 2026	D1	Deliverable 1
 Resubmit D0 Assignment	https://github.com/COS420-F25/F26-TeamB/issues/136	Done					hkniner			Oct 5, 2026	Oct 10, 2026	D1	Deliverable 1
-Submit D1 Assignment	https://github.com/COS420-F25/F26-TeamB/issues/67	In Progress					hkniner		PM / Er3te	Oct 2, 2026	Oct 13, 2026	D1	Deliverable 1
+Submit D1 Assignment	https://github.com/COS420-F25/F26-TeamB/issues/67	Done					hkniner		PM / Er3te	Oct 2, 2026	Oct 13, 2026	D1	Deliverable 1
 D0 GitHub Revised Documentation Archival	https://github.com/COS420-F25/F26-TeamB/issues/79	Done					Er3te		Co-PM / hkniner	Oct 4, 2026	Oct 12, 2026	D1	Deliverable 1
 Update Problem Statement on the ReadMe	https://github.com/COS420-F25/F26-TeamB/issues/138	Done					Er3te		PM / Er3te	Oct 9, 2026	Oct 11, 2026	D1	Deliverable 1
 Update PS on the ReadMe	https://github.com/COS420-F25/F26-TeamB/issues/135	Done					Nicholas-Munro		PM / Er3te	Oct 5, 2026	Oct 12, 2026	D1	Deliverable 1
