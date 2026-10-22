@@ -93,6 +93,18 @@ function App() {
 
   return (
     <MDBContainer fluid className="login-page">
+      // annoying bruteforce fix for the input text color
+      <style>{`
+        .login-page input,
+        .login-page input:focus,
+        .login-page input:-webkit-autofill,
+        .login-page input:-webkit-autofill:hover,
+        .login-page input:-webkit-autofill:focus {
+          color: #fff !important;
+          -webkit-text-fill-color: #fff !important;
+          caret-color: #fff !important;
+        }
+      `}</style>
       <MDBRow className="d-flex justify-content-center align-items-center h-100">
         <MDBCol col="12">
           <MDBCard className="bg-dark text-white my-5 mx-auto login-card">
@@ -107,6 +119,8 @@ function App() {
                   wrapperClass="mb-4 mx-5 w-100"
                   labelClass="text-white"
                   label="Email address"
+                  inputClass="text-white"
+                  inputStyle={{ color: 'white' }}
                   id="email-address"
                   type="email"
                   size="lg"
@@ -118,6 +132,8 @@ function App() {
                   wrapperClass="mb-4 mx-5 w-100"
                   labelClass="text-white"
                   label="Password"
+                  inputClass="text-white"
+                  inputStyle={{ color: 'white' }}
                   id="password"
                   type="password"
                   size="lg"
@@ -130,6 +146,8 @@ function App() {
                     wrapperClass="mb-4 mx-5 w-100"
                     labelClass="text-white"
                     label="Confirm password"
+                    inputClass="text-white"
+                    inputStyle={{ color: 'white' }}
                     id="confirm-password"
                     type="password"
                     size="lg"
@@ -164,7 +182,7 @@ function App() {
               </div>}
 
               <p className="mb-0">
-                {isSignUp ? 'Already have an account? ' : 'Don&apos;t have an account? '}
+                {isSignUp ? 'Already have an account? ' : "Don't have an account? "}
                 <a href={isSignUp ? '#login' : '#sign-up'} onClick={switchMode} className="text-white-50 fw-bold">
                   {isSignUp ? 'Login' : 'Sign Up'}
                 </a>
