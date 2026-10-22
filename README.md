@@ -38,7 +38,7 @@ cd F26-TeamB
 ```bash
 cd kaite
 ```
-4. **First time only** run:
+4. If any modules have been added since the last build, run:
 ```bash
 npm install
 ```
@@ -46,3 +46,9 @@ npm install
 ```bash
 npm run start
 ```
+
+### Local authentication
+
+Accounts created through the sign-up form are stored in the browser's local
+storage. This is suitable for local development only; a backend authentication
+service is required for production use.
