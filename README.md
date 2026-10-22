@@ -38,7 +38,7 @@ cd F26-TeamB
 ```bash
 cd kaite
 ```
-4. **First time only** run:
+4. If any modules have been added since the last build, run:
 ```bash
 npm install
 ```
