@@ -92,8 +92,8 @@ function App() {
   };
 
   return (
+    // annoying bruteforce fix for the input text color
     <MDBContainer fluid className="login-page">
-      // annoying bruteforce fix for the input text color
       <style>{`
         .login-page input,
         .login-page input:focus,
