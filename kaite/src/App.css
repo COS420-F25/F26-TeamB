@@ -4,6 +4,12 @@
   padding: 1px 0;
 }
 
+@media (prefers-color-scheme: dark) {
+  .login-page {
+    background: #121212;
+  }
+}
+
 .login-card {
   border-radius: 1rem;
   max-width: 400px;

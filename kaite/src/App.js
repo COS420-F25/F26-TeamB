@@ -19,7 +19,7 @@ function App() {
           <MDBCard className="bg-dark text-white my-5 mx-auto login-card">
             <MDBCardBody className="p-5 d-flex flex-column align-items-center mx-auto w-100">
               <h2 className="fw-bold mb-2 text-uppercase">Login</h2>
-              <p className="text-white-50 mb-5">Please enter your login and password!</p>
+              <p className="text-white-50 mb-5">Please enter your login and password</p>
 
               <MDBInput
                 wrapperClass="mb-4 mx-5 w-100"
