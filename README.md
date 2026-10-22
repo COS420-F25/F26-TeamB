@@ -49,8 +49,6 @@ npm run start
 
 ### Local authentication
 
-The login form reads seed credentials from `kaite/public/credentials.txt`, using
-the format `email|password` (one account per line). Accounts created through the
-sign-up form are stored in the browser's local storage until a backend
-authentication service is integrated. Plain-text credentials are for local
-development only.
+Accounts created through the sign-up form are stored in the browser's local
+storage. This is suitable for local development only; a backend authentication
+service is required for production use.

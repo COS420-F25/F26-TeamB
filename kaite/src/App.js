@@ -22,27 +22,6 @@ function readLocalUsers() {
   }
 }
 
-async function readFileUsers() {
-  const response = await fetch('/credentials.txt');
-  if (!response.ok) {
-    throw new Error('Unable to load local credentials.');
-  }
-
-  const text = await response.text();
-  return text
-    .split('\n')
-    .map((line) => line.trim())
-    .filter((line) => line && !line.startsWith('#'))
-    .map((line) => {
-      const [email, password] = line.split('|');
-      return {
-        email: email?.trim().toLowerCase(),
-        password: password?.trim()
-      };
-    })
-    .filter(({ email, password }) => email && password);
-}
-
 function App() {
   const [isSignUp, setIsSignUp] = React.useState(false);
   const [email, setEmail] = React.useState('');
@@ -80,15 +59,10 @@ function App() {
       return;
     }
 
-    try {
-      const users = [...(await readFileUsers()), ...readLocalUsers()];
-      const isValid = users.some(
-        (user) => user.email === normalizedEmail && user.password === password
-      );
-      setMessage(isValid ? 'Login successful.' : 'Invalid email or password.');
-    } catch (error) {
-      setMessage(error.message);
-    }
+    const isValid = readLocalUsers().some(
+      (user) => user.email === normalizedEmail && user.password === password
+    );
+    setMessage(isValid ? 'Login successful.' : 'Invalid email or password.');
   };
 
   return (
