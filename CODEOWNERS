@@ -1,0 +1,2 @@
+# This file ensures PRs affecting files in the app directory must have at least one approving dev review before being merged
+/kaite/                 @Blarnix    @stephenm05     @ryanshorey     @hkniner
