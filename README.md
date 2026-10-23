@@ -38,7 +38,7 @@ cd F26-TeamB
 ```bash
 cd kaite
 ```
-4. If any modules have been added since the last build, run:
+4. Run the following on the first build and after any updates to the app's modules. This does not need to be ran every time you launch the app, only if the package.json was changed since last running it:
 ```bash
 npm install
 ```
