@@ -22,3 +22,15 @@ test('displays error message for invalid login', async () => {
   userEvent.click(screen.getByRole('button', { name: /login/i }));
   expect(await screen.findByRole('status')).toBeInTheDocument();
 });
+
+test('browser does not store a file when user inputted invalid type', async () => {
+  render(<App />);
+  //creates a dummy file to upload into the 
+  const file = new File(['image'], 'photo.png', {type: 'image/png'});
+
+  userEvent.upload(screen.getByLabelText(/upload file/i), file);
+
+  //Checking if photo.png is in the document, and the length of the localStorage is 0
+  expect(screen.queryByText('photo.png')).not.toBeInTheDocument();
+  expect(localStorage.length).toBe(0);
+});
