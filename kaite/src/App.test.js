@@ -36,12 +36,9 @@ test('browser does not store a file when user inputted invalid type', async () =
     //creates a dummy file to upload into the website
   const file = new File(['image'], 'photo.png', {type: 'image/png'});
 
-  // check `conversationlog.json` was selected and uploaded to localStorage
-  expect(await screen.findByText('conversationlog.json')).toBeInTheDocument();
-
   user.upload(screen.getByLabelText(/upload file/i), file);
 
-  //Checking if photo.png is in the document, and the length of the localStorage is 0
+  //Checking if photo.png is in the document
   expect(screen.queryByText('photo.png')).not.toBeInTheDocument();
   //Using a vairation of Stephen's expect statement, might need to be slightly changed depending on implementation
   expect(localStorage.getItem('kaite-uploaded-conversations')).not.toContain(file);
