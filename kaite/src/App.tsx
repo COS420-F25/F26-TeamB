@@ -74,17 +74,6 @@ function App(): React.JSX.Element {
   return (
     // annoying bruteforce fix for the input text color
     <MDBContainer fluid className="login-page">
-      <style>{`
-        .login-page input,
-        .login-page input:focus,
-        .login-page input:-webkit-autofill,
-        .login-page input:-webkit-autofill:hover,
-        .login-page input:-webkit-autofill:focus {
-          color: #fff !important;
-          -webkit-text-fill-color: #fff !important;
-          caret-color: #fff !important;
-        }
-      `}</style>
       <MDBRow className="d-flex justify-content-center align-items-center h-100">
         <MDBCol col="12">
           <MDBCard className="bg-dark text-white my-5 mx-auto login-card">
