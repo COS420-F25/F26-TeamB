@@ -33,12 +33,12 @@ test('browser stores selected json file', async () => {
   user.click(await screen.findByLabelText(/reflection conversation/i));
 
   // create test JSON file to upload
-  const fakeLog = {
+  const fakeLog = JSON.stringify({
     timestamp: '11/03/2026-15:08',
     prompts: ['how many r in strawberry?'],
     responses: []
-  }
-  const file = new File([JSON.stringify(fakeLog)], 'conversationlog.json', {type: 'text/json'});
+  })
+  const file = new File([fakeLog], 'conversationlog.json', {type: 'text/json'});
 
   // not sure if .upload() clicks the upload button or if it's *just* for managing file selection
   user.upload(screen.getByLabelText(/upload file/i), file);
@@ -46,5 +46,5 @@ test('browser stores selected json file', async () => {
   // check `conversationlog.json` was selected and uploaded to localStorage
   expect(await screen.findByText('conversationlog.json')).toBeInTheDocument();
   // don't know the exact structure we're going to use for storing the conversation logs, so this may need to be adjusted slightly
-  expect(localStorage.getItem('kaite-uploaded-conversations')).toContain(file);
+  expect(localStorage.getItem('kaite-uploaded-conversations')).toContain(fakeLog);
 });
