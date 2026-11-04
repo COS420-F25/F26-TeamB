@@ -22,3 +22,12 @@ test('displays error message for invalid login', async () => {
   userEvent.click(screen.getByRole('button', { name: /login/i }));
   expect(await screen.findByRole('status')).toBeInTheDocument();
 });
+// very basic test that fails for now, will be updated and implemented when the file upload feature is added.
+test('displays a message for an invalid file type', async () => {
+  render(<App />);
+  const file = new File(['image'], 'photo.png', {type: 'image/png'});
+  await userEvent.upload(screen.getByLabelText(/upload file/i), file);
+  expect(
+    await screen.findByText(/png.*not supported|file type.*not supported/i),
+  ).toBeInTheDocument();
+});
