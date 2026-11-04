@@ -9,9 +9,9 @@ test('renders the login form', () => {
   expect(screen.getByLabelText(/password/i)).toBeInTheDocument();
 });
 
-test('opens the sign-up form', () => {
+test('opens the sign-up form', async () => {
   render(<App />);
-  userEvent.click(screen.getByRole('link', { name: /sign up/i }));
+  await userEvent.click(screen.getByRole('link', { name: /sign up/i }));
   expect(screen.getByRole('heading', { name: /sign up/i })).toBeInTheDocument();
   expect(screen.getByLabelText(/confirm password/i)).toBeInTheDocument();
 });
