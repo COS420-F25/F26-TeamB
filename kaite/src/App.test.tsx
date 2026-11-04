@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { App, LOCAL_USERS_KEY } from './App';
+import App, { LOCAL_USERS_KEY } from './App';
 
 test('renders the login form', () => {
   render(<App />);
@@ -33,12 +33,12 @@ test('browser stores selected json file', async () => {
   user.click(await screen.findByLabelText(/reflection conversation/i));
 
   // create test JSON file to upload
-  const fakeLog = JSON.stringify({
+  const fakeLog: string = JSON.stringify({
     timestamp: '11/03/2026-15:08',
     prompts: ['how many r in strawberry?'],
     responses: []
   })
-  const file = new File([fakeLog], 'conversationlog.json', {type: 'text/json'});
+  const file: File = new File([fakeLog], 'conversationlog.json', {type: 'text/json'});
 
   // not sure if .upload() clicks the upload button or if it's *just* for managing file selection
   user.upload(screen.getByLabelText(/upload file/i), file);
