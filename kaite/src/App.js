@@ -1,4 +1,3 @@
-
 import React from 'react';
 import './App.css';
 import {
@@ -13,14 +12,9 @@ import {
 } from 'mdb-react-ui-kit';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 
-export const LOCAL_USERS_KEY: string = 'kaite-local-users';
+const LOCAL_USERS_KEY = 'kaite-local-users';
 
-interface User {
-    email: string,
-    password: string
-}
-
-function readLocalUsers(): User[] {
+function readLocalUsers() {
   try {
     return JSON.parse(window.localStorage.getItem(LOCAL_USERS_KEY) || '[]');
   } catch {
@@ -28,22 +22,22 @@ function readLocalUsers(): User[] {
   }
 }
 
-function App(): React.JSX.Element {
-  const [isSignUp, setIsSignUp] = React.useState<boolean>(false);
-  const [email, setEmail] = React.useState<string>('');
-  const [password, setPassword] = React.useState<string>('');
-  const [confirmPassword, setConfirmPassword] = React.useState<string>('');
-  const [message, setMessage] = React.useState<string>('');
+function App() {
+  const [isSignUp, setIsSignUp] = React.useState(false);
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const [confirmPassword, setConfirmPassword] = React.useState('');
+  const [message, setMessage] = React.useState('');
 
-  const switchMode = (event: React.MouseEvent<HTMLAnchorElement>): void => {
+  const switchMode = (event) => {
     event.preventDefault();
-    setIsSignUp((current: boolean) => !current);
+    setIsSignUp((current) => !current);
     setMessage('');
   };
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const normalizedEmail: string = email.trim().toLowerCase();
+    const normalizedEmail = email.trim().toLowerCase();
 
     if (isSignUp) {
       if (password !== confirmPassword) {
@@ -51,12 +45,12 @@ function App(): React.JSX.Element {
         return;
       }
 
-      if (readLocalUsers().some((user: User) => user.email === normalizedEmail)) {
+      if (readLocalUsers().some((user) => user.email === normalizedEmail)) {
         setMessage('An account with that email already exists.');
         return;
       }
 
-      const users: User[] = [...readLocalUsers(), { email: normalizedEmail, password }];
+      const users = [...readLocalUsers(), { email: normalizedEmail, password }];
       window.localStorage.setItem(LOCAL_USERS_KEY, JSON.stringify(users));
       setMessage('Account created. You can now log in.');
       setIsSignUp(false);
@@ -65,8 +59,8 @@ function App(): React.JSX.Element {
       return;
     }
 
-    const isValid: boolean = readLocalUsers().some(
-      (user: User) => user.email === normalizedEmail && user.password === password
+    const isValid = readLocalUsers().some(
+      (user) => user.email === normalizedEmail && user.password === password
     );
     setMessage(isValid ? 'Login successful.' : 'Invalid email or password.');
   };
@@ -74,6 +68,17 @@ function App(): React.JSX.Element {
   return (
     // annoying bruteforce fix for the input text color
     <MDBContainer fluid className="login-page">
+      <style>{`
+        .login-page input,
+        .login-page input:focus,
+        .login-page input:-webkit-autofill,
+        .login-page input:-webkit-autofill:hover,
+        .login-page input:-webkit-autofill:focus {
+          color: #fff !important;
+          -webkit-text-fill-color: #fff !important;
+          caret-color: #fff !important;
+        }
+      `}</style>
       <MDBRow className="d-flex justify-content-center align-items-center h-100">
         <MDBCol col="12">
           <MDBCard className="bg-dark text-white my-5 mx-auto login-card">
@@ -88,38 +93,41 @@ function App(): React.JSX.Element {
                   wrapperClass="mb-4 mx-5 w-100"
                   labelClass="text-white"
                   label="Email address"
-                  className="text-white"
+                  inputClass="text-white"
+                  inputStyle={{ color: 'white' }}
                   id="email-address"
                   type="email"
                   size="lg"
                   required
                   value={email}
-                  onChange={(event: React.ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}
+                  onChange={(event) => setEmail(event.target.value)}
                 />
                 <MDBInput
                   wrapperClass="mb-4 mx-5 w-100"
                   labelClass="text-white"
                   label="Password"
-                  className="text-white"
+                  inputClass="text-white"
+                  inputStyle={{ color: 'white' }}
                   id="password"
                   type="password"
                   size="lg"
                   required
                   value={password}
-                  onChange={(event: React.ChangeEvent<HTMLInputElement>) => setPassword(event.target.value)}
+                  onChange={(event) => setPassword(event.target.value)}
                 />
                 {isSignUp && (
                   <MDBInput
                     wrapperClass="mb-4 mx-5 w-100"
                     labelClass="text-white"
                     label="Confirm password"
-                    className="text-white"
+                    inputClass="text-white"
+                    inputStyle={{ color: 'white' }}
                     id="confirm-password"
                     type="password"
                     size="lg"
                     required
                     value={confirmPassword}
-                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => setConfirmPassword(event.target.value)}
+                    onChange={(event) => setConfirmPassword(event.target.value)}
                   />
                 )}
 
