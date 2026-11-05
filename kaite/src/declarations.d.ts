@@ -1,0 +1,1 @@
+declare module '*.css'; // fix `side-effect import` error for CSS files

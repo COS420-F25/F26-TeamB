@@ -14,3 +14,32 @@
   border-radius: 1rem;
   max-width: 400px;
 }
+
+/* Normal input text */
+.login-page input,
+.login-page input:focus {
+  color: #fff !important;
+  caret-color: #fff !important;
+}
+
+/* Browser autofill styling: Chrome, Firefox, and other browsers */
+.login-page input:autofill,
+.login-page input:-webkit-autofill,
+.login-page input:-webkit-autofill:hover,
+.login-page input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #fff !important;
+  caret-color: #fff !important;
+
+  /* Override the browser's autofill background */
+  -webkit-box-shadow: 0 0 0 1000px #332d2d inset !important;
+  box-shadow: 0 0 0 1000px #332d2d inset !important;
+
+  /* Prevent browser autofill transitions from showing the default color */
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+/* Firefox-specific autofill styling */
+.login-page input:autofill {
+  background-color: #332d2d !important;
+  color: #fff !important;
+}
