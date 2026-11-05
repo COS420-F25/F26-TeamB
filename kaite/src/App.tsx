@@ -13,7 +13,7 @@ import {
 } from 'mdb-react-ui-kit';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 
-const LOCAL_USERS_KEY: string = 'kaite-local-users';
+export const LOCAL_USERS_KEY: string = 'kaite-local-users';
 
 interface User {
     email: string,
