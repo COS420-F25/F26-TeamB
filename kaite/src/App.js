@@ -28,7 +28,6 @@ function App() {
   const [password, setPassword] = React.useState('');
   const [confirmPassword, setConfirmPassword] = React.useState('');
   const [message, setMessage] = React.useState('');
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
 
   const switchMode = (event) => {
     event.preventDefault();
@@ -63,15 +62,7 @@ function App() {
     const isValid = readLocalUsers().some(
       (user) => user.email === normalizedEmail && user.password === password
     );
-    setIsLoggedIn(isValid);
     setMessage(isValid ? 'Login successful.' : 'Invalid email or password.');
-  };
-
-  const handleFileChange = (event) => {
-    const [file] = event.target.files;
-    if (file && file.type !== 'application/pdf') {
-      setMessage('This file type is not supported. Please upload a PDF.');
-    }
   };
 
   return (
@@ -151,19 +142,6 @@ function App() {
               </form>
 
               {message && <p className="small mt-3 mb-0 text-center" role="status">{message}</p>}
-
-              {isLoggedIn && (
-                <label className="small mt-4" htmlFor="upload-file">
-                  Upload file
-                  <input
-                    id="upload-file"
-                    className="d-block mt-2"
-                    type="file"
-                    accept="application/pdf"
-                    onChange={handleFileChange}
-                  />
-                </label>
-              )}
 
               {!isSignUp && <div className="d-flex flex-row mt-3 mb-5">
                 <MDBBtn tag="a" color="none" className="m-3" style={{ color: 'white' }} aria-label="Log in with Facebook">
