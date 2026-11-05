@@ -25,12 +25,12 @@ test('displays error message for invalid login', async () => {
 test('displays a message for an invalid file type', async () => {
   window.localStorage.setItem(
     'kaite-local-users',
-    JSON.stringify([{ email: 'user@example.com', password: 'password' }]),
+    JSON.stringify([{ email: 'test-user@test.com', password: 'password1234' }]),
   );
   render(<App />);
 
-  await userEvent.type(screen.getByLabelText(/email address/i), 'user@example.com');
-  await userEvent.type(screen.getByLabelText(/password/i), 'password');
+  await userEvent.type(screen.getByLabelText(/email address/i), 'test-user@test.com');
+  await userEvent.type(screen.getByLabelText(/password/i), 'password1234');
   await userEvent.click(screen.getByRole('button', { name: /login/i }));
   expect(await screen.findByText(/login successful/i)).toBeInTheDocument();
 
