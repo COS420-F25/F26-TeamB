@@ -48,3 +48,23 @@ test('browser stores selected json file', async () => {
   // don't know the exact structure we're going to use for storing the conversation logs, so this may need to be adjusted slightly
   expect(localStorage.getItem('kaite-uploaded-conversations')).toContain(fakeLog);
 });
+test('browser does not store a file when user inputted invalid type', async () => {
+  render(<App />);
+  const user = userEvent.setup();
+  // log-in and go to Reflection Conversation screen from main dashboard
+  localStorage.setItem(LOCAL_USERS_KEY, JSON.stringify([{email: "test-user@test.com", password: "password1234"}]));
+  user.type(screen.getByLabelText(/email address/i), 'test-user@test.com');
+  user.type(screen.getByLabelText(/password/i), 'password1234');
+  user.click(screen.getByRole('button', { name: /login/i }));
+  user.click(await screen.findByLabelText(/reflection conversation/i));
+
+    //creates a dummy file to upload into the website
+  const file = new File(['image'], 'photo.png', {type: 'image/png'});
+
+  user.upload(screen.getByLabelText(/upload file/i), file);
+
+  //Checking if photo.png is in the document
+  expect(screen.queryByText('photo.png')).not.toBeInTheDocument();
+  //Using a vairation of Stephen's expect statement, might need to be slightly changed depending on implementation
+  expect(localStorage.getItem('kaite-uploaded-conversations')).not.toContain(file);
+});
