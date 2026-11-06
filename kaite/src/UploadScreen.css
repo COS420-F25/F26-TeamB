@@ -189,7 +189,7 @@
 }
 
 /* CollaboraITE card */
-.collaborate-card {
+.collaboraite-card {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -201,7 +201,7 @@
   box-shadow: var(--upload-shadow);
 }
 
-.collaborate-icon {
+.collaboraite-icon {
   flex-shrink: 0;
   width: 27px;
   height: 27px;
@@ -214,26 +214,26 @@
   font-size: 17px;
 }
 
-.collaborate-description {
+.collaboraite-description {
   flex: 1;
   min-width: 0;
 }
 
-.collaborate-description h2 {
+.collaboraite-description h2 {
   font-family: Georgia, 'Times New Roman', serif;
   font-size: 13px;
   font-weight: normal;
   margin: 0 0 3px;
 }
 
-.collaborate-description p {
+.collaboraite-description p {
   color: var(--upload-muted);
   font-size: 9px;
   line-height: 1.5;
   margin: 0;
 }
 
-.collaborate-button {
+.collaboraite-button {
   flex-shrink: 0;
 }
 
@@ -370,15 +370,15 @@
     margin-top: 28px;
   }
 
-  .collaborate-card {
+  .collaboraite-card {
     flex-wrap: wrap;
   }
 
-  .collaborate-description {
+  .collaboraite-description {
     flex-basis: calc(100% - 45px);
   }
 
-  .collaborate-button {
+  .collaboraite-button {
     margin-left: 39px;
   }
 

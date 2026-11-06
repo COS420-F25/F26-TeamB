@@ -51,12 +51,12 @@ const UploadScreen: React.FC = () => {
         </section>
 
         {/* CollaboraITE import */}
-        <section className="collaborate-card">
-          <div className="collaborate-icon" aria-hidden="true">
+        <section className="collaboraite-card">
+          <div className="collaboraite-icon" aria-hidden="true">
             <span>▢</span>
           </div>
 
-          <div className="collaborate-description">
+          <div className="collaboraite-description">
             <h2>Import conversations from CollaborAITE</h2>
             <p>
               Bring in the AI conversations you've had on CollaborAITE.
@@ -65,7 +65,7 @@ const UploadScreen: React.FC = () => {
             </p>
           </div>
 
-          <button type="button" className="upload-outline-button collaborate-button">
+          <button type="button" className="upload-outline-button collaboraite-button">
             Choose CollaborAITE chats
           </button>
         </section>
