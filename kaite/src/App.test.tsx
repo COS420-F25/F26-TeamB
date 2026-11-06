@@ -55,7 +55,7 @@ test('stores a valid JSON conversation log locally', async () => {
 
   expect(await screen.findByText('conversationlog.json')).toBeTruthy();
   expect(JSON.parse(window.localStorage.getItem(LOCAL_CONVERSATIONS_KEY) || '[]')).toEqual([
-    { name: 'conversationlog.json', content },
+    { name: 'conversationlog.json', content, size: file.size },
   ]);
 });
 
