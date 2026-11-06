@@ -15,6 +15,60 @@
   max-width: 400px;
 }
 
+.upload-card {
+  border-radius: 1rem;
+  max-width: 560px;
+}
+
+.upload-dropzone {
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: 180px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 1.5rem;
+  border: 2px dashed rgba(255, 255, 255, 0.55);
+  border-radius: 0.75rem;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.upload-dropzone:hover,
+.upload-dropzone-active {
+  border-color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.upload-file-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.upload-file-list {
+  padding: 0;
+  list-style: none;
+}
+
+.upload-file-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  overflow-wrap: anywhere;
+}
+
 /* Normal input text */
 .login-page input,
 .login-page input:focus {
