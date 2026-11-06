@@ -41,40 +41,6 @@
   }
 }
 
-/* Explicit application dark-mode setting */
-.dark-mode .upload-screen,
-[data-theme="dark"] .upload-screen,
-.upload-screen[data-theme="dark"] {
-  --upload-bg: #181b19;
-  --upload-surface: #242925;
-  --upload-surface-hover: #303832;
-  --upload-text: #e8ebe6;
-  --upload-muted: #aeb6ad;
-  --upload-border: #515b52;
-  --upload-dashed-border: #69766a;
-  --upload-accent: #718c76;
-  --upload-accent-hover: #829d87;
-  --upload-icon-bg: #354238;
-  --upload-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
-}
-
-/* Explicit application light-mode setting */
-.light-mode .upload-screen,
-[data-theme="light"] .upload-screen,
-.upload-screen[data-theme="light"] {
-  --upload-bg: #ebede9;
-  --upload-surface: #f7f8f3;
-  --upload-surface-hover: #eef0eb;
-  --upload-text: #252824;
-  --upload-muted: #62675f;
-  --upload-border: #c4c8bf;
-  --upload-dashed-border: #a5aaa0;
-  --upload-accent: #405747;
-  --upload-accent-hover: #344a3a;
-  --upload-icon-bg: #dfe5dc;
-  --upload-shadow: 0 8px 18px rgba(35, 40, 32, 0.10);
-}
-
 /* Navigation */
 .upload-navbar {
   height: 35px;
