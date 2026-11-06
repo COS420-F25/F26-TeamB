@@ -107,12 +107,14 @@ const MainScreen: React.FC<{ userInitials?: string }> = ({ userInitials = 'NM' }
       {/* ---------- Navbar ---------- */}
       <MDBNavbar light className="main-navbar px-4">
         <MDBNavbarBrand className="fw-bold">KAIte</MDBNavbarBrand>
-        <MDBNavbarNav className="d-flex flex-row align-items-center ms-auto">
+        <MDBNavbarNav 
+        fullWidth={false}
+        className="d-flex flex-row align-items-center ms-auto">
           <MDBNavbarItem>
             <MDBNavbarLink href="#home">Home</MDBNavbarLink>
           </MDBNavbarItem>
           <MDBNavbarItem>
-            <MDBNavbarLink href="#chat-history">Chat history</MDBNavbarLink>
+            <MDBNavbarLink href="#chat-history">Chat History</MDBNavbarLink>
           </MDBNavbarItem>
           <MDBNavbarItem>
             <MDBNavbarLink href="#settings">Settings</MDBNavbarLink>

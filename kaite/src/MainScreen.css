@@ -18,6 +18,9 @@
 .main-navbar {
   background: #ffffff;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  font-family: 'Libre Franklin';
+  font-size: 12px;
+  font-weight: 600;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -30,6 +33,10 @@
   .main-navbar .nav-link {
     color: #fff !important;
   }
+}
+
+.main-navbar .navbar-nav{
+    gap: 1rem;
 }
 
 /* ---------- Avatars ---------- */
