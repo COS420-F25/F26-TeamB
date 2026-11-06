@@ -275,7 +275,7 @@ export function FileDrop({ message, onLogout }: FileDropProps): React.JSX.Elemen
                 Choose a .json conversation log to get started.
               </p>
 
-              {message && <p className="small text-center" role="status">{message}</p>}
+              {message && <div className="login-toast" role="status" aria-live="polite">{message}</div>}
 
               <label
                 htmlFor="conversation-upload"
