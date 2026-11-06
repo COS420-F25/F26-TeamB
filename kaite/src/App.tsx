@@ -20,11 +20,20 @@ export const LOCAL_CONVERSATIONS_KEY: string = 'kaite-uploaded-conversations';
 interface UploadedConversation {
   name: string;
   content: string;
+  size?: number;
 }
 
 function readUploadedConversations(): UploadedConversation[] {
   try {
-    return JSON.parse(window.localStorage.getItem(LOCAL_CONVERSATIONS_KEY) || '[]');
+    const stored: unknown = JSON.parse(window.localStorage.getItem(LOCAL_CONVERSATIONS_KEY) || '[]');
+    if (!Array.isArray(stored)) {
+      return [];
+    }
+
+    return stored.filter(
+      (conversation): conversation is UploadedConversation =>
+        typeof conversation?.name === 'string' && typeof conversation?.content === 'string'
+    );
   } catch {
     return [];
   }
@@ -207,7 +216,9 @@ interface FileDropProps {
 
 export function FileDrop({ message, onLogout }: FileDropProps): React.JSX.Element {
   const [isOver, setIsOver] = useState(false);
-  const [files, setFiles] = useState<Array<{ name: string; size: number }>>([]);
+  const [files, setFiles] = useState<Array<{ name: string; size?: number }>>(
+    () => readUploadedConversations().map(({ name, size }) => ({ name, size })),
+  );
   const [uploadMessage, setUploadMessage] = useState<string>('');
 
   const processFiles = async (selectedFiles: File[]): Promise<void> => {
@@ -222,9 +233,10 @@ export function FileDrop({ message, onLogout }: FileDropProps): React.JSX.Elemen
         JSON.parse(content);
 
         const conversations = readUploadedConversations();
+        const uploadedConversation = { name: file.name, content, size: file.size };
         window.localStorage.setItem(
           LOCAL_CONVERSATIONS_KEY,
-          JSON.stringify([...conversations, { name: file.name, content }]),
+          JSON.stringify([...conversations, uploadedConversation]),
         );
         setFiles((current) => [...current, { name: file.name, size: file.size }]);
         setUploadMessage(`${file.name} uploaded successfully.`);
@@ -293,12 +305,14 @@ export function FileDrop({ message, onLogout }: FileDropProps): React.JSX.Elemen
 
               {files.length > 0 && (
                 <div className="w-100 mt-4">
-                  <h3 className="h6">Selected conversation logs</h3>
+                  <h3 className="h6">Saved conversation logs</h3>
                   <ul className="upload-file-list mb-0">
                     {files.map((file, index) => (
                       <li key={`${file.name}-${index}`}>
                         <span>{file.name}</span>
-                        <span className="text-white-50 small">{Math.ceil(file.size / 1024)} KB</span>
+                        {typeof file.size === 'number' && (
+                          <span className="text-white-50 small">{Math.ceil(file.size / 1024)} KB</span>
+                        )}
                       </li>
                     ))}
                   </ul>
