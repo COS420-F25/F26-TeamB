@@ -38,7 +38,7 @@
   width: 2.25rem;
   height: 2.25rem;
   border-radius: 50%;
-  background: #198754;
+  background: #0e4d30;
   color: #fff;
   display: flex;
   align-items: center;
@@ -74,7 +74,7 @@
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: #198754;
+  color: #0e4d30;
   margin-bottom: 0.5rem;
 }
 
@@ -119,8 +119,8 @@
 }
 
 .main-cta-btn {
-  background-color: #198754;
-  border-color: #198754;
+  background-color: #0e4d30;
+  border-color: #0e4d30;
   border-radius: 0.5rem;
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -139,14 +139,14 @@
   letter-spacing: 0.02em;
   padding: 0.6rem 1.25rem;
   width: 100%;
-  color: #198754;
-  border-color: #198754;
+  color: #0e4d30;
+  border-color: #0e4d30;
 }
 
 @media (prefers-color-scheme: dark) {
   .main-cta-btn-outline {
-    color: #75d9a3;
-    border-color: #75d9a3;
+    color: #0e4d30;
+    border-color: #0e4d30;
   }
 }
 
@@ -236,7 +236,7 @@
 }
 
 .main-chat-bubble--you {
-  background: #198754;
+  background: #0e4d30;
   color: #fff;
   border-bottom-right-radius: 0.25rem;
 }
@@ -294,7 +294,7 @@
 
 .main-testimonial-tag {
   background: #eaf5ef !important;
-  color: #198754 !important;
+  color: #0e4d30 !important;
   font-weight: 500;
   font-size: 0.75rem;
   padding: 0.4rem 0.75rem;
