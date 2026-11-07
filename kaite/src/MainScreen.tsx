@@ -268,15 +268,17 @@ const MainScreen: React.FC = () => {
               </MDBInputGroup>
             </MDBCardBody>
           </MDBCard>
+        </MDBCol>
+      </MDBRow>
+
+      {/* ---------- Testimonials ---------- */}
+      <MDBRow>
             <div className="text-center main-subheading-block">
                 <p className="main-eyebrow">WHAT STUDENTS ARE SAYING</p>
                 <h2 className="main-subheading">Real habits, reflected on honestly</h2>
                 <hr style={{border: 'none',height: '2px',backgroundColor: '#ffffff',margin: '20px 0'}} />
             </div>
-        </MDBCol>
       </MDBRow>
-
-      {/* ---------- Testimonials ---------- */}
       <MDBRow className="main-testimonials">
 
         {PLACEHOLDER_TESTIMONIALS.map((testimonial) => (
