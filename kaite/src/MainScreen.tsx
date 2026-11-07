@@ -101,7 +101,7 @@ const PLACEHOLDER_TESTIMONIALS: Testimonial[] = [
   },
 ];
 
-const MainScreen: React.FC<{ userInitials?: string }> = ({ userInitials = 'NM' }) => {
+const MainScreen: React.FC = () => {
   return (
     <MDBContainer fluid className="main-page">
       {/* ---------- Navbar ---------- */}
@@ -120,7 +120,7 @@ const MainScreen: React.FC<{ userInitials?: string }> = ({ userInitials = 'NM' }
             <MDBNavbarLink href="#settings">Settings</MDBNavbarLink>
           </MDBNavbarItem>
           <MDBNavbarItem>
-            <div className="main-avatar">{userInitials}</div>
+            <div className="main-avatar">{"NM"}</div>
           </MDBNavbarItem>
         </MDBNavbarNav>
       </MDBNavbar>
@@ -146,8 +146,9 @@ const MainScreen: React.FC<{ userInitials?: string }> = ({ userInitials = 'NM' }
 
           <MDBCard className="main-cta-card mb-4">
             <MDBCardBody>
+            
               <MDBBtn type="button" className="main-cta-btn w-100 d-flex justify-content-between align-items-center">
-                CONTINUE TO REFLECTION CONVERSATION
+                    CONTINUE TO REFLECTION CONVERSATION
                 <MDBIcon fas icon="arrow-right" />
               </MDBBtn>
               <div className="d-flex main-cta-meta mt-3">
@@ -183,7 +184,7 @@ const MainScreen: React.FC<{ userInitials?: string }> = ({ userInitials = 'NM' }
               <p className="main-small-text mb-3">
                 Catch them as you go to sharpen how you read AI output.
               </p>
-              <MDBBtn type="button" outline className="main-cta-btn-outline">
+              <MDBBtn type="button" outline className="main-cta-btn">
                 PRACTICE SPOTTING AI ERRORS <MDBIcon fas icon="arrow-right" className="ms-1" />
               </MDBBtn>
               <div className="d-flex main-cta-meta mt-3">
@@ -247,7 +248,7 @@ const MainScreen: React.FC<{ userInitials?: string }> = ({ userInitials = 'NM' }
                       {message.text}
                     </div>
                     {message.sender === 'you' && (
-                      <div className="main-avatar main-avatar--chat ms-2">{userInitials}</div>
+                      <div className="main-avatar main-avatar--chat ms-2">{"NM"}</div>
                     )}
                   </div>
                 ))}
@@ -261,8 +262,8 @@ const MainScreen: React.FC<{ userInitials?: string }> = ({ userInitials = 'NM' }
                   disabled
                   aria-label="Reflection message input"
                 />
-                <MDBBtn type="button" color="success" disabled>
-                  <MDBIcon fas icon="arrow-up" />
+                <MDBBtn className="main-cta-btn">
+                  <MDBIcon fas icon="arrow-up"/>
                 </MDBBtn>
               </MDBInputGroup>
             </MDBCardBody>
