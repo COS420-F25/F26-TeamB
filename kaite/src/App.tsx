@@ -1,6 +1,7 @@
 
 import React from 'react';
 import './App.css';
+import UploadScreen, { LOCAL_CONVERSATIONS_KEY } from './UploadScreen';
 import {
   MDBBtn,
   MDBContainer,
@@ -14,6 +15,7 @@ import {
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 
 export const LOCAL_USERS_KEY: string = 'kaite-local-users';
+export { LOCAL_CONVERSATIONS_KEY };
 
 interface User {
     email: string,
@@ -34,6 +36,7 @@ function App(): React.JSX.Element {
   const [password, setPassword] = React.useState<string>('');
   const [confirmPassword, setConfirmPassword] = React.useState<string>('');
   const [message, setMessage] = React.useState<string>('');
+  const [isLoggedIn, setIsLoggedIn] = React.useState<boolean>(false);
 
   const switchMode = (event: React.MouseEvent<HTMLAnchorElement>): void => {
     event.preventDefault();
@@ -68,8 +71,25 @@ function App(): React.JSX.Element {
     const isValid: boolean = readLocalUsers().some(
       (user: User) => user.email === normalizedEmail && user.password === password
     );
-    setMessage(isValid ? 'Login successful.' : 'Invalid email or password.');
+    if (isValid) {
+      setMessage('Login successful.');
+      setIsLoggedIn(true);
+    } else {
+      setMessage('Invalid email or password.');
+    }
   };
+
+  if (isLoggedIn) {
+    return (
+      <UploadScreen
+        message={message}
+        onBack={() => {
+          setMessage('');
+          setIsLoggedIn(false);
+        }}
+      />
+    );
+  }
 
   return (
     // annoying bruteforce fix for the input text color

@@ -1,6 +1,21 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import App, { LOCAL_USERS_KEY } from './App';
+import App, { LOCAL_CONVERSATIONS_KEY, LOCAL_USERS_KEY } from './App';
+
+const testUser = { email: 'test-user@test.com', password: 'password1234' };
+
+beforeEach(() => {
+  window.localStorage.clear();
+});
+
+async function login() {
+  const user = userEvent.setup();
+  window.localStorage.setItem(LOCAL_USERS_KEY, JSON.stringify([testUser]));
+  await user.type(screen.getByLabelText(/email address/i), testUser.email);
+  await user.type(screen.getByLabelText(/^password$/i), testUser.password);
+  await user.click(screen.getByRole('button', { name: /^login$/i }));
+  return user;
+}
 
 test('renders the login form', () => {
   render(<App />);
@@ -17,34 +32,46 @@ test('opens the sign-up form', async () => {
 });
 test('displays error message for invalid login', async () => {
   render(<App />);
-  userEvent.type(screen.getByLabelText(/email address/i), 'invalid@example.com');
-  userEvent.type(screen.getByLabelText(/password/i), 'wrongpassword');
-  userEvent.click(screen.getByRole('button', { name: /login/i }));
-  expect(await screen.findByRole('status')).toBeInTheDocument();
-});
-test('browser stores selected json file', async () => {
-  render(<App />);
   const user = userEvent.setup();
-  // log-in and go to Reflection Conversation screen from main dashboard
-  localStorage.setItem(LOCAL_USERS_KEY, JSON.stringify([{email: "test-user@test.com", password: "password1234"}]));
-  user.type(screen.getByLabelText(/email address/i), 'test-user@test.com');
-  user.type(screen.getByLabelText(/password/i), 'password1234');
-  user.click(screen.getByRole('button', { name: /login/i }));
-  user.click(await screen.findByLabelText(/reflection conversation/i));
+  await user.type(screen.getByLabelText(/email address/i), 'invalid@example.com');
+  await user.type(screen.getByLabelText(/^password$/i), 'wrongpassword');
+  await user.click(screen.getByRole('button', { name: /^login$/i }));
+  expect(await screen.findByText(/invalid email or password/i)).toBeInTheDocument();
+});
 
-  // create test JSON file to upload
-  const fakeLog: string = JSON.stringify({
-    timestamp: '11/03/2026-15:08',
-    prompts: ['how many r in strawberry?'],
-    responses: []
-  })
-  const file: File = new File([fakeLog], 'conversationlog.json', {type: 'text/json'});
+test('shows the upload mockup after successful login', async () => {
+  render(<App />);
+  await login();
+  expect(await screen.findByRole('heading', { name: /import your ai chats/i })).toBeInTheDocument();
+});
 
-  // not sure if .upload() clicks the upload button or if it's *just* for managing file selection
-  user.upload(screen.getByLabelText(/upload file/i), file);
+test('stores valid JSON files locally from the mockup upload control', async () => {
+  render(<App />);
+  const user = await login();
+  const content = JSON.stringify({ messages: [{ text: 'Hello' }] });
+  const file = new File([content], 'conversationlog.json', { type: 'application/json' });
 
-  // check `conversationlog.json` was selected and uploaded to localStorage
+  await user.upload(screen.getByLabelText(/choose files to upload/i), file);
+
   expect(await screen.findByText('conversationlog.json')).toBeInTheDocument();
-  // don't know the exact structure we're going to use for storing the conversation logs, so this may need to be adjusted slightly
-  expect(localStorage.getItem('kaite-uploaded-conversations')).toContain(fakeLog);
+  expect(JSON.parse(window.localStorage.getItem(LOCAL_CONVERSATIONS_KEY) || '[]')).toEqual([
+    { name: 'conversationlog.json', content, size: file.size },
+  ]);
+});
+
+test('rejects unsupported and malformed files without storing them', async () => {
+  render(<App />);
+  const user = await login();
+  await user.upload(
+    screen.getByLabelText(/choose files to upload/i),
+    new File(['not json'], 'conversation.json', { type: 'application/json' }),
+  );
+  expect(await screen.findByText(/not valid json/i)).toBeInTheDocument();
+  expect(window.localStorage.getItem(LOCAL_CONVERSATIONS_KEY)).toBeNull();
+
+  fireEvent.change(screen.getByLabelText(/choose files to upload/i), {
+    target: { files: [new File(['image'], 'photo.png', { type: 'image/png' })] },
+  });
+  expect(await screen.findByText(/unsupported file type/i)).toBeInTheDocument();
+  expect(window.localStorage.getItem(LOCAL_CONVERSATIONS_KEY)).toBeNull();
 });

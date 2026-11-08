@@ -226,6 +226,7 @@
 
 /* Dropzone */
 .upload-dropzone {
+  position: relative;
   min-height: 193px;
   border: 1.5px dashed var(--upload-dashed-border);
   border-radius: 9px;
@@ -237,6 +238,48 @@
   box-shadow: var(--upload-shadow);
   text-align: center;
   padding: 18px;
+}
+
+.upload-dropzone-active {
+  border-color: var(--upload-accent);
+  background: var(--upload-surface-hover);
+}
+
+.upload-hidden-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+.upload-file-list {
+  width: min(100%, 360px);
+  max-height: 120px;
+  overflow-y: auto;
+  padding: 0;
+  margin: 12px 0 0;
+  list-style: none;
+  text-align: left;
+}
+
+.upload-file-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--upload-border);
+  color: var(--upload-muted);
+  font-size: 10px;
+  overflow-wrap: anywhere;
+}
+
+.upload-feedback {
+  margin: 8px 0 0;
+  color: var(--upload-muted);
+  font-size: 10px;
 }
 
 .upload-icon {
@@ -312,6 +355,11 @@
 
 .upload-continue-button:hover {
   background: var(--upload-accent-hover);
+}
+
+.upload-continue-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
 }
 
 .upload-continue-button span {
