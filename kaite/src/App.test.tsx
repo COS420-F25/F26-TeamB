@@ -69,13 +69,6 @@ test('does not store a new file when user cancels file selection', async () => {
   // Verify browser storage did not change
   expect({ ...localStorage }).toEqual(storageBefore);
 });
-
-  const user = userEvent.setup();
-  await user.type(screen.getByLabelText(/email address/i), 'invalid@example.com');
-  await user.type(screen.getByLabelText(/^password$/i), 'wrongpassword');
-  await user.click(screen.getByRole('button', { name: /^login$/i }));
-  expect(await screen.findByText(/invalid email or password/i)).toBeInTheDocument();
-});
 test('displays a message for an invalid file type', async () => {
   window.localStorage.setItem(
     'kaite-local-users',
