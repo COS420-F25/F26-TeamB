@@ -57,7 +57,7 @@ test('does not store a new file when user cancels file selection', async () => {
 
 
   // Find the file upload input
-  const fileInput = screen.queryByLabelText(/upload file/i);
+  const fileInput = screen.getByLabelText(/upload file/i);
   expect(fileInput).not.toBeNull();
 
   // Record browser stroage before cancellation
