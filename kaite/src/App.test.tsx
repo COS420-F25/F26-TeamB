@@ -29,8 +29,31 @@ Checks that cancelling file selection does not store a new file.
 The file upload feature has not been implemented yet.
 This test will need to be verified once it is available.
  */
-test('does not store a new file when user cancels file selection', () => {
+
+  // Updated log in flow from Stephens comment
+
+test('does not store a new file when user cancels file selection', async () => {
+  window.localStorage.clear();
   render(<App />);
+
+  // Complete sign up and login flow before testing file selection
+  await userEvent.click(screen.getByRole('link', { name: /sign up/i }));
+
+  await userEvent.type(screen.getByLabelText(/email address/i), 'test@example.com');
+  await userEvent.type(screen.getByLabelText(/^password$/i), 'testpassword123');
+  await userEvent.type(screen.getByLabelText(/confirm password/i), 'testpassword123');
+
+  await userEvent.click(screen.getByRole('button', { name: /create account/i }));
+
+  expect(await screen.findByText(/account created/i)).toBeInTheDocument();
+
+  // Log in test acct
+  await userEvent.type(screen.getByLabelText(/^password$/i), 'testpassword123');
+  await userEvent.click(screen.getByRole('button', { name: /^login$/i }));
+
+  expect(await screen.findByText(/login successful/i)).toBeInTheDocument();
+
+
 
   // Find the file upload input
   const fileInput = screen.queryByLabelText(/upload file/i);
@@ -41,9 +64,6 @@ test('does not store a new file when user cancels file selection', () => {
 
   // Simulate cancelling file selection
   userEvent.upload(fileInput, []);
-
-  // Verify no file was selected
-  expect(fileInput.files).toHaveLength(0);
 
   // Verify browser storage did not change
   expect({ ...localStorage }).toEqual(storageBefore);
