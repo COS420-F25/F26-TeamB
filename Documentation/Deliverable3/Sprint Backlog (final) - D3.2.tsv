@@ -1,0 +1,39 @@
+Title	URL	Status	Assignees	QC	Start date	End date (ready for QC by)	Deliverable / Sprint	Milestone	Dev QC	Priority
+Write tests for US5 implementation	https://github.com/COS420-F25/F26-TeamB/issues/206	60-90% done	stephenm05	Lead Dev / Blarnix	30-Oct-26	03-Nov-26	D3	Deliverable 3		High
+"Create mockup of ""Upload log"" screen"	https://github.com/COS420-F25/F26-TeamB/issues/210	Done	Nicholas-Munro	Dev / RyanS	30-Oct-26	02-Nov-26	D3	Deliverable 3		High
+Create mockup of a main screen	https://github.com/COS420-F25/F26-TeamB/issues/208	Done	Nicholas-Munro	Lead Dev / Blarnix	30-Oct-26	02-Nov-26	D3	Deliverable 3		High
+Create a calendar with all sprint due dates from SR Challenge-Solution	https://github.com/COS420-F25/F26-TeamB/issues/204	Done	Nicholas-Munro	PM / Er3te	30-Oct-26	31-Oct-26	D3	Deliverable 3		High
+"Handle the ""Following up on needs for software tasks"" SR change/need"	https://github.com/COS420-F25/F26-TeamB/issues/191	Done	stephenm05	Lead Dev / Blarnix	27-Oct-26	05-Nov-26	D3	Deliverable 3		High
+Determine Code Tests for Upcoming Sprint Feature Implementations (TDD)	https://github.com/COS420-F25/F26-TeamB/issues/198	Done	"Blarnix, hkniner, ryanshorey, stephenm05"	Lead Dev / Blarnix	30-Oct-26	30-Oct-26	D3	Deliverable 3		High
+Setup Continuous Integration for the repo using GitHub Actions	https://github.com/COS420-F25/F26-TeamB/issues/196	Done	ryanshorey	Co-Dev Lead / StephenM	30-Oct-26	05-Nov-26	D3	Deliverable 3		High
+Introduce deadlines for task creation SR change/need	https://github.com/COS420-F25/F26-TeamB/issues/212	Done	stephenm05	Co-PM / hkniner	30-Oct-26	02-Nov-26	D3	Deliverable 3		High
+Test 2 - User File Selection Cancellation	https://github.com/COS420-F25/F26-TeamB/issues/215	Quality Checking	ryanshorey	Lead Dev / Blarnix	30-Oct-26	03-Nov-26	D3	Deliverable 3	Co-Dev Lead / StephenM	High
+Migrate the app to TypeScript	https://github.com/COS420-F25/F26-TeamB/issues/228	Done	stephenm05	Co-PM / hkniner	03-Nov-26	04-Nov-26	D3	Deliverable 3	Lead Dev / Blarnix	High
+"Continue resolving ""[ensuring team is] Updating taskboard progress"" SR change/need"	https://github.com/COS420-F25/F26-TeamB/issues/192	Done	Er3te	Co-PM / hkniner	30-Oct-26	05-Nov-26	D3	Deliverable 3		Medium
+Address Hi-fi Mockups Feedback on Figma	https://github.com/COS420-F25/F26-TeamB/issues/223	Quality Checking	Nicholas-Munro	PM / Er3te	30-Oct-26	05-Nov-26	D3	Deliverable 3		Medium
+Address REQ-07 Feedback for SRS Hi-fi Mockup(s)	https://github.com/COS420-F25/F26-TeamB/issues/219	Done	Nicholas-Munro	Dev / RyanS	30-Oct-26	05-Nov-26	D3	Deliverable 3		Medium
+Address REQ-16 Feedback for SRS Hi-fi Mockup(s)	https://github.com/COS420-F25/F26-TeamB/issues/225	Done	Nicholas-Munro	Co-PM / hkniner	01-Nov-26	05-Nov-26	D3	Deliverable 3		Medium
+Create the Domain Model	https://github.com/COS420-F25/F26-TeamB/issues/202	Done	Nicholas-Munro	Co-Dev Lead / StephenM	30-Oct-26	05-Nov-26	D3	Deliverable 3		Medium
+Address Feedback for SRS Hi-fi Mockups	https://github.com/COS420-F25/F26-TeamB/issues/222	Done	Nicholas-Munro	Dev / RyanS	30-Oct-26	05-Nov-26	D3	Deliverable 3		Medium
+Address feedback on UC diagrams	https://github.com/COS420-F25/F26-TeamB/issues/229	Done	"Er3te, Nicholas-Munro"	PM / Er3te	03-Nov-26	05-Nov-26	D3	Deliverable 3		Medium
+Test 3 - Invalid File Type Browser Storage	https://github.com/COS420-F25/F26-TeamB/issues/216	Quality Checking	hkniner	Lead Dev / Blarnix	30-Oct-26	03-Nov-26	D3	Deliverable 3	Co-Dev Lead / StephenM	Medium
+"User Story (5) ""As a user, I want to upload conversation logs from the AI models I already use, so that I don’t have to set up and learn a new model to utilize the reflection software."""	https://github.com/COS420-F25/F26-TeamB/issues/115	60-90% done	Blarnix	Lead Dev / Blarnix	30-Oct-26	05-Nov-26	D3	Deliverable 3		Medium
+Record a short video showing software progress	https://github.com/COS420-F25/F26-TeamB/issues/197	Todo / Sprint Backlog	hkniner	Co-Dev Lead / StephenM	30-Oct-26	05-Nov-26	D3	Deliverable 3		Medium
+Create coded mockup of main screen	https://github.com/COS420-F25/F26-TeamB/issues/207	Done	hkniner	Co-Dev Lead / StephenM	30-Oct-26	05-Nov-26	D3	Deliverable 3		Medium
+"Implement ""File Upload"""	https://github.com/COS420-F25/F26-TeamB/issues/209	Quality Checking	Blarnix	Co-Dev Lead / StephenM	30-Oct-26	05-Nov-26	D3	Deliverable 3	Dev / RyanS	Medium
+"Create coded mockup of ""Upload Log"" Screen"	https://github.com/COS420-F25/F26-TeamB/issues/211	Quality Checking	stephenm05	Lead Dev / Blarnix	30-Oct-26	05-Nov-26	D3	Deliverable 3		Medium
+Test 1 - JSON File Browser Storage	https://github.com/COS420-F25/F26-TeamB/issues/214	Done	stephenm05	Lead Dev / Blarnix	30-Oct-26	03-Nov-26	D3	Deliverable 3	Co-Dev Lead / StephenM	Medium
+Test 4 - Invalid File Type Message Test	https://github.com/COS420-F25/F26-TeamB/issues/217	Done	Blarnix	Lead Dev / Blarnix	30-Oct-26	03-Nov-26	D3	Deliverable 3	Co-Dev Lead / StephenM	Medium
+Address Feedback for SRS FR Grouping A	https://github.com/COS420-F25/F26-TeamB/issues/220	Done	hkniner	Dev / RyanS	30-Oct-26	05-Nov-26	D3	Deliverable 3		Medium
+Address Feedback for SRS NFR	https://github.com/COS420-F25/F26-TeamB/issues/221	Done	ryanshorey	Co-PM / hkniner	30-Oct-26	05-Nov-26	D3	Deliverable 3		Medium
+Create a breakdown image(s) to accompany task management & QC Procedures	https://github.com/COS420-F25/F26-TeamB/issues/130	Done	Er3te	Co-PM / hkniner	30-Oct-26	05-Nov-26	D3	Deliverable 3		Low
+Export Sprint Backlog after Sprint Planning Meeting	https://github.com/COS420-F25/F26-TeamB/issues/200	Done	Er3te	Co-PM / hkniner	30-Oct-26	01-Nov-26	D3	Deliverable 3		Low
+Create D3 tasks	https://github.com/COS420-F25/F26-TeamB/issues/195	Done	"Blarnix, Er3te, hkniner"	PM / Er3te	30-Oct-26	02-Nov-26	D3	Deliverable 3		Low
+Conduct Usability Testing	https://github.com/COS420-F25/F26-TeamB/issues/205	Done	Blarnix	Lead Dev / Blarnix	30-Oct-26	05-Nov-26	D3	Deliverable 3		Low
+Export Product Backlog at end of the deliverable	https://github.com/COS420-F25/F26-TeamB/issues/199	Quality Checking	Er3te	Co-PM / hkniner	30-Oct-26	09-Nov-26	D3	Deliverable 3		Low
+Participate in the D3 Sprint Review as a team	https://github.com/COS420-F25/F26-TeamB/issues/201	Todo / Sprint Backlog	"Blarnix, Er3te, hkniner, Nicholas-Munro, ryanshorey, stephenm05"		30-Oct-26	09-Nov-26	D3	Deliverable 3		Low
+Upload [remaining] D3/D2 (revs) GitHub Documentation Archival	https://github.com/COS420-F25/F26-TeamB/issues/203	In Progress	Er3te	Co-PM / hkniner	30-Oct-26	09-Nov-26	D3	Deliverable 3		Low
+Submit D3 Assignment	https://github.com/COS420-F25/F26-TeamB/issues/213	Todo / Sprint Backlog	hkniner	PM / Er3te	27-Oct-26	09-Nov-26	D3	Deliverable 3		Low
+Address Feedback for SRS FR Grouping B	https://github.com/COS420-F25/F26-TeamB/issues/218	Done	stephenm05	Dev / RyanS	30-Oct-26	05-Nov-26	D3	Deliverable 3		Low
+Uploading updated Sprint Review doc	https://github.com/COS420-F25/F26-TeamB/pull/224	Done	Er3te		01-Nov-26	01-Nov-26	D3	Deliverable 3		Low
+Export Sprint Backlog after completion of D3 deliverable	https://github.com/COS420-F25/F26-TeamB/issues/248	60-90% done	"Er3te, Nicholas-Munro"	hkniner	2026-10-30	05-Nov-26	D3	Deliverable 3		Low
