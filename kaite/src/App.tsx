@@ -15,7 +15,6 @@ import {
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 
 export const LOCAL_USERS_KEY: string = 'kaite-local-users';
-export const LOCAL_CONVERSATIONS_KEY: string = 'kaite-uploaded-conversations';
 
 interface UploadedConversation {
   name: string;
@@ -25,7 +24,7 @@ interface UploadedConversation {
 
 function readUploadedConversations(): UploadedConversation[] {
   try {
-    const stored: unknown = JSON.parse(window.localStorage.getItem(LOCAL_CONVERSATIONS_KEY) || '[]');
+    const stored: unknown = JSON.parse(window.localStorage.getItem('kaite-uploaded-conversations') || '[]');
     if (!Array.isArray(stored)) {
       return [];
     }
@@ -235,7 +234,7 @@ export function FileDrop({ message, onLogout }: FileDropProps): React.JSX.Elemen
         const conversations = readUploadedConversations();
         const uploadedConversation = { name: file.name, content, size: file.size };
         window.localStorage.setItem(
-          LOCAL_CONVERSATIONS_KEY,
+          'kaite-uploaded-conversations',
           JSON.stringify([...conversations, uploadedConversation]),
         );
         setFiles((current) => [...current, { name: file.name, size: file.size }]);

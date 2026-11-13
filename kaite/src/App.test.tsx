@@ -1,7 +1,7 @@
 import { beforeEach, expect, test } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import App, { LOCAL_CONVERSATIONS_KEY, LOCAL_USERS_KEY } from './App';
+import App, { LOCAL_USERS_KEY } from './App';
 
 const testUser = { email: 'test-user@test.com', password: 'password1234' };
 
@@ -54,7 +54,7 @@ test('stores a valid JSON conversation log locally', async () => {
   await userEvent.upload(screen.getByLabelText(/upload file/i), file);
 
   expect(await screen.findByText('conversationlog.json')).toBeTruthy();
-  expect(JSON.parse(window.localStorage.getItem(LOCAL_CONVERSATIONS_KEY) || '[]')).toEqual([
+  expect(JSON.parse(window.localStorage.getItem('kaite-uploaded-conversations') || '[]')).toEqual([
     { name: 'conversationlog.json', content, size: file.size },
   ]);
 });
@@ -64,11 +64,11 @@ test('rejects unsupported file types without storing them', async () => {
   await login();
 
   const file = new File(['image'], 'photo.png', { type: 'image/png' });
-  await userEvent.upload(screen.getByLabelText(/upload file/i), file);
+  await userEvent.upload(screen.getByLabelText(/upload file/i), file, { applyAccept: false });
 
   expect(await screen.findByText(/file type.*not supported/i)).toBeTruthy();
   expect(screen.queryByText('photo.png')).toBeNull();
-  expect(window.localStorage.getItem(LOCAL_CONVERSATIONS_KEY)).toBeNull();
+  expect(window.localStorage.getItem('kaite-uploaded-conversations')).toBeNull();
 });
 
 test('rejects malformed JSON files', async () => {
@@ -79,5 +79,5 @@ test('rejects malformed JSON files', async () => {
   await userEvent.upload(screen.getByLabelText(/upload file/i), file);
 
   expect(await screen.findByText(/not valid json/i)).toBeTruthy();
-  expect(window.localStorage.getItem(LOCAL_CONVERSATIONS_KEY)).toBeNull();
+  expect(window.localStorage.getItem('kaite-uploaded-conversations')).toBeNull();
 });
