@@ -2,7 +2,17 @@ import React from 'react';
 import './UploadScreen.css';
 import FileUploadBox from './FileUploadBox';
 
-const UploadScreen: React.FC = () => {
+interface uploadScreenProps {
+    screenSetter: React.Dispatch<React.SetStateAction<number>>;
+    messageSetter: React.Dispatch<React.SetStateAction<string>>;
+    message?: string;
+}
+
+function UploadScreen({ screenSetter, messageSetter, message }: uploadScreenProps): React.JSX.Element {
+  const switchToMainScreen = (): void => {
+    messageSetter('');
+    screenSetter(1);
+  }
   return (
     <div className="upload-screen">
       {/* Navigation bar */}
@@ -20,11 +30,14 @@ const UploadScreen: React.FC = () => {
       </header>
 
       {/* Main content */}
+      
       <main className="upload-main">
+        {message && <div key={message} className="upload-toast" role="status" aria-live="polite">{message}</div>}
         <section className="upload-intro">
           <h1>Import your AI chats</h1>
 
           <p>
+            MESSAGE: {message}
             Add export files - or a whole folder of them - from ChatGPT,
             Claude, Claude Code, or Gemini (JSON, JSONL, or pasted text).
             <strong>
@@ -77,11 +90,11 @@ const UploadScreen: React.FC = () => {
         </div>
 
         {/* File upload area */}
-        <FileUploadBox />
+        <FileUploadBox onUploadMessage={messageSetter}/>
 
         {/* Bottom navigation */}
         <footer className="upload-footer">
-          <button type="button" className="upload-outline-button">
+          <button type="button" onClick={switchToMainScreen} className="upload-outline-button">
             Back
           </button>
 

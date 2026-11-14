@@ -29,20 +29,21 @@ function readLocalUsers(): User[] {
 }
 
 interface loginScreenProps {
-    screenSetter: React.Dispatch<React.SetStateAction<number>>
+    screenSetter: React.Dispatch<React.SetStateAction<number>>;
+    messageSetter: React.Dispatch<React.SetStateAction<string>>;
+    message?: string;
 }
 
-function LoginScreen({ screenSetter }: loginScreenProps): React.JSX.Element {
+function LoginScreen({ screenSetter, messageSetter, message }: loginScreenProps): React.JSX.Element {
   const [isSignUp, setIsSignUp] = React.useState<boolean>(false);
   const [email, setEmail] = React.useState<string>('');
   const [password, setPassword] = React.useState<string>('');
   const [confirmPassword, setConfirmPassword] = React.useState<string>('');
-  const [message, setMessage] = React.useState<string>('');
 
   const switchMode = (event: React.MouseEvent<HTMLAnchorElement>): void => {
     event.preventDefault();
     setIsSignUp((current: boolean) => !current);
-    setMessage('');
+    messageSetter('');
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
@@ -51,18 +52,18 @@ function LoginScreen({ screenSetter }: loginScreenProps): React.JSX.Element {
 
     if (isSignUp) {
       if (password !== confirmPassword) {
-        setMessage('Passwords do not match.');
+        messageSetter('Passwords do not match.');
         return;
       }
 
       if (readLocalUsers().some((user: User) => user.email === normalizedEmail)) {
-        setMessage('An account with that email already exists.');
+        messageSetter('An account with that email already exists.');
         return;
       }
 
       const users: User[] = [...readLocalUsers(), { email: normalizedEmail, password }];
       window.localStorage.setItem(LOCAL_USERS_KEY, JSON.stringify(users));
-      setMessage('Account created. You can now log in.');
+      messageSetter('Account created. You can now log in.');
       setIsSignUp(false);
       setPassword('');
       setConfirmPassword('');
@@ -72,7 +73,7 @@ function LoginScreen({ screenSetter }: loginScreenProps): React.JSX.Element {
     const isValid: boolean = readLocalUsers().some(
       (user: User) => user.email === normalizedEmail && user.password === password
     );
-    setMessage(isValid ? 'Login successful.' : 'Invalid email or password.');
+    messageSetter(isValid ? 'Login successful.' : 'Invalid email or password.');
     isValid && screenSetter(1);
   };
 

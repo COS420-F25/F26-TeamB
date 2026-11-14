@@ -42,7 +42,7 @@ function readFileAsText(file: File): Promise<string> {
 
 export interface FileUploadBoxProps {
   /** Called whenever a file succeeds or fails upload, for surfacing toast/status messages. */
-  onUploadMessage?: (message: string) => void;
+  onUploadMessage?: React.Dispatch<React.SetStateAction<string>>;
 }
 
 function FileUploadBox({ onUploadMessage }: FileUploadBoxProps): React.JSX.Element {

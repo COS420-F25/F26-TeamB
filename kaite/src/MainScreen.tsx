@@ -101,7 +101,17 @@ const PLACEHOLDER_TESTIMONIALS: Testimonial[] = [
   },
 ];
 
-const MainScreen: React.FC = () => {
+interface mainScreenProps {
+  screenSetter: React.Dispatch<React.SetStateAction<number>>;
+  messageSetter: React.Dispatch<React.SetStateAction<string>>;
+  message?: string;
+}
+
+function MainScreen({ screenSetter, messageSetter, message }: mainScreenProps): React.JSX.Element {
+  const switchToUploadScreen = (): void => {
+    messageSetter('');
+    screenSetter(2);
+  }
   return (
     <MDBContainer fluid className="main-page">
       {/* ---------- Navbar ---------- */}
@@ -124,7 +134,7 @@ const MainScreen: React.FC = () => {
           </MDBNavbarItem>
         </MDBNavbarNav>
       </MDBNavbar>
-
+      {message && <div className="login-toast" role="status" aria-live="polite">{message}</div>}
       {/* ---------- Hero ---------- */}
       <MDBRow className="main-hero">
         <MDBCol md="6" className="main-hero__text">
@@ -147,7 +157,7 @@ const MainScreen: React.FC = () => {
           <MDBCard className="main-cta-card mb-4">
             <MDBCardBody>
             
-              <MDBBtn type="button" className="main-cta-btn w-100 d-flex justify-content-between align-items-center">
+              <MDBBtn type="button" onClick={switchToUploadScreen} className="main-cta-btn w-100 d-flex justify-content-between align-items-center">
                     CONTINUE TO REFLECTION CONVERSATION
                 <MDBIcon fas icon="arrow-right" />
               </MDBBtn>
