@@ -1,5 +1,6 @@
 import React from 'react';
 import './UploadScreen.css';
+import FileUploadBox from './FileUploadBox';
 
 const UploadScreen: React.FC = () => {
   return (
@@ -76,27 +77,7 @@ const UploadScreen: React.FC = () => {
         </div>
 
         {/* File upload area */}
-        <section className="upload-dropzone" aria-label="File upload area">
-          <div className="upload-icon" aria-hidden="true">
-            ↑
-          </div>
-
-          <h2>Add your AI logs</h2>
-          <p>Drag files or a folder here, or choose below</p>
-
-          <div className="upload-file-buttons">
-            <button type="button" className="upload-outline-button">
-              Choose files
-            </button>
-            <button type="button" className="upload-outline-button">
-              Choose a folder
-            </button>
-          </div>
-
-          <span className="upload-supported-formats">
-            Supports .json, .jsonl and .txt
-          </span>
-        </section>
+        <FileUploadBox />
 
         {/* Bottom navigation */}
         <footer className="upload-footer">
