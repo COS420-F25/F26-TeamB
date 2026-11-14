@@ -65,7 +65,7 @@ function FileUploadBox({ onUploadMessage }: FileUploadBoxProps): React.JSX.Eleme
 
       try {
         const content = await readFileAsText(file);
-        // the `JSON.parse(content);` that was originally here doesn't do anything since it's return value isn't used
+        JSON.parse(content); // check for valid JSON by trying to parse the file's raw text
 
         const conversations = readUploadedConversations();
         const uploadedConversation = { name: file.name, content, size: file.size };
@@ -76,7 +76,7 @@ function FileUploadBox({ onUploadMessage }: FileUploadBoxProps): React.JSX.Eleme
         setFiles((current) => [...current, { name: file.name, size: file.size }]);
         onUploadMessage?.(`${file.name} uploaded successfully.`);
       } catch {
-        onUploadMessage?.(`${file.name} is not valid or could not be saved.`);
+        onUploadMessage?.(`${file.name} is not valid JSON or could not be saved.`);
       }
     }
   };

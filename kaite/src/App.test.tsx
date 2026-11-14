@@ -39,20 +39,21 @@ test('shows an error for invalid login credentials', async () => {
   expect(await screen.findByText(/invalid email or password/i)).toBeTruthy();
 });
 
-test('shows the upload page after successful login', async () => {
+test('shows the main dashboard after successful login', async () => {
   render(<App />);
   await login();
-  expect(await screen.findByRole('heading', { name: /upload a conversation/i })).toBeTruthy();
+  expect(await screen.findByRole('button', { name: /reflection conversation/i })).toBeTruthy();
   expect(screen.getByText(/login successful/i)).toBeTruthy();
 });
 
 test('stores a valid JSON conversation log locally', async () => {
   render(<App />);
   await login();
+  await userEvent.click(await screen.findByRole('button', { name: /reflection conversation/i }));
 
   const content = JSON.stringify({ messages: [{ text: 'Hello' }] });
   const file = new File([content], 'conversationlog.json', { type: 'application/json' });
-  await userEvent.upload(screen.getByLabelText(/upload file/i), file);
+  await userEvent.upload(screen.getByLabelText(/choose file/i), file);
 
   expect(await screen.findByText('conversationlog.json')).toBeTruthy();
   expect(JSON.parse(window.localStorage.getItem('kaite-uploaded-conversations') || '[]')).toEqual([
@@ -63,11 +64,12 @@ test('stores a valid JSON conversation log locally', async () => {
 test('rejects unsupported file types without storing them', async () => {
   render(<App />);
   await login();
+  await userEvent.click(await screen.findByRole('button', { name: /reflection conversation/i }));
 
   const file = new File(['image'], 'photo.png', { type: 'image/png' });
-  await userEvent.upload(screen.getByLabelText(/upload file/i), file, { applyAccept: false });
+  await userEvent.upload(screen.getByLabelText(/choose file/i), file, { applyAccept: false });
 
-  expect(await screen.findByText(/file type.*not supported/i)).toBeTruthy();
+  expect(await screen.findByText(/unsupported file type/i)).toBeTruthy();
   expect(screen.queryByText('photo.png')).toBeNull();
   expect(window.localStorage.getItem('kaite-uploaded-conversations')).toBeNull();
 });
@@ -75,9 +77,10 @@ test('rejects unsupported file types without storing them', async () => {
 test('rejects malformed JSON files', async () => {
   render(<App />);
   await login();
+  await userEvent.click(await screen.findByRole('button', { name: /reflection conversation/i }));
 
   const file = new File(['not json'], 'conversation.json', { type: 'application/json' });
-  await userEvent.upload(screen.getByLabelText(/upload file/i), file);
+  await userEvent.upload(screen.getByLabelText(/choose file/i), file);
 
   expect(await screen.findByText(/not valid json/i)).toBeTruthy();
   expect(window.localStorage.getItem('kaite-uploaded-conversations')).toBeNull();
