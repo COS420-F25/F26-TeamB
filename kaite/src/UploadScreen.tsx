@@ -37,7 +37,6 @@ function UploadScreen({ screenSetter, messageSetter, message }: uploadScreenProp
           <h1>Import your AI chats</h1>
 
           <p>
-            MESSAGE: {message}
             Add export files - or a whole folder of them - from ChatGPT,
             Claude, Claude Code, or Gemini (JSON, JSONL, or pasted text).
             <strong>
