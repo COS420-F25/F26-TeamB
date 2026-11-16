@@ -1,14 +1,14 @@
 import React from 'react';
-import './UploadScreen.css';
+import './UploadAILogScreen.css';
 import FileUploadBox from './FileUploadBox';
 
-interface uploadScreenProps {
+interface uploadAILogScreenProps {
     screenSetter: React.Dispatch<React.SetStateAction<number>>;
     messageSetter: React.Dispatch<React.SetStateAction<string>>;
     message?: string;
 }
 
-function UploadScreen({ screenSetter, messageSetter, message }: uploadScreenProps): React.JSX.Element {
+function UploadAILogScreen({ screenSetter, messageSetter, message }: uploadAILogScreenProps): React.JSX.Element {
   const switchToMainScreen = (): void => {
     messageSetter('');
     screenSetter(1);
@@ -109,4 +109,4 @@ function UploadScreen({ screenSetter, messageSetter, message }: uploadScreenProp
   );
 };
 
-export default UploadScreen;
+export default UploadAILogScreen;

@@ -15,7 +15,7 @@ import {
   MDBBadge,
   MDBInputGroup,
 } from 'mdb-react-ui-kit';
-import './MainScreen.css';
+import './MainDashboardScreen.css';
 
 interface ChatMessage {
   id: string;
@@ -101,13 +101,13 @@ const PLACEHOLDER_TESTIMONIALS: Testimonial[] = [
   },
 ];
 
-interface mainScreenProps {
+interface mainDashboardScreenProps {
   screenSetter: React.Dispatch<React.SetStateAction<number>>;
   messageSetter: React.Dispatch<React.SetStateAction<string>>;
   message?: string;
 }
 
-function MainScreen({ screenSetter, messageSetter, message }: mainScreenProps): React.JSX.Element {
+function MainDashboardScreen({ screenSetter, messageSetter, message }: mainDashboardScreenProps): React.JSX.Element {
   const switchToUploadScreen = (): void => {
     messageSetter('');
     screenSetter(2);
@@ -317,5 +317,5 @@ function MainScreen({ screenSetter, messageSetter, message }: mainScreenProps): 
   );
 };
 
-export default MainScreen;
+export default MainDashboardScreen;
 
