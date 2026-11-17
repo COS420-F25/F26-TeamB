@@ -1,0 +1,7 @@
+import { createRoot } from "react-dom/client";
+import { WeflectFlow, createWeflectServer } from "./KAIte";
+import "./KAIte/styles/kaite.css";
+
+const server = createWeflectServer(); // POSTs to /api/session and /api/message on this origin
+
+createRoot(document.getElementById("root")!).render(<WeflectFlow server={server} />);
