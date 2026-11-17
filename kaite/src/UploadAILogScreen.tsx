@@ -1,7 +1,18 @@
 import React from 'react';
-import './UploadScreen.css';
+import './UploadAILogScreen.css';
+import FileUploadBox from './FileUploadBox';
 
-const UploadScreen: React.FC = () => {
+interface uploadAILogScreenProps {
+    screenSetter: React.Dispatch<React.SetStateAction<number>>;
+    messageSetter: React.Dispatch<React.SetStateAction<string>>;
+    message?: string;
+}
+
+function UploadAILogScreen({ screenSetter, messageSetter, message }: uploadAILogScreenProps): React.JSX.Element {
+  const switchToMainScreen = (): void => {
+    messageSetter('');
+    screenSetter(1);
+  }
   return (
     <div className="upload-screen">
       {/* Navigation bar */}
@@ -19,7 +30,9 @@ const UploadScreen: React.FC = () => {
       </header>
 
       {/* Main content */}
+      
       <main className="upload-main">
+        {message && <div key={message} className="upload-toast" role="status" aria-live="polite">{message}</div>}
         <section className="upload-intro">
           <h1>Import your AI chats</h1>
 
@@ -76,31 +89,11 @@ const UploadScreen: React.FC = () => {
         </div>
 
         {/* File upload area */}
-        <section className="upload-dropzone" aria-label="File upload area">
-          <div className="upload-icon" aria-hidden="true">
-            ↑
-          </div>
-
-          <h2>Add your AI logs</h2>
-          <p>Drag files or a folder here, or choose below</p>
-
-          <div className="upload-file-buttons">
-            <button type="button" className="upload-outline-button">
-              Choose files
-            </button>
-            <button type="button" className="upload-outline-button">
-              Choose a folder
-            </button>
-          </div>
-
-          <span className="upload-supported-formats">
-            Supports .json, .jsonl and .txt
-          </span>
-        </section>
+        <FileUploadBox onUploadMessage={messageSetter}/>
 
         {/* Bottom navigation */}
         <footer className="upload-footer">
-          <button type="button" className="upload-outline-button">
+          <button type="button" onClick={switchToMainScreen} className="upload-outline-button">
             Back
           </button>
 
@@ -116,4 +109,4 @@ const UploadScreen: React.FC = () => {
   );
 };
 
-export default UploadScreen;
+export default UploadAILogScreen;
