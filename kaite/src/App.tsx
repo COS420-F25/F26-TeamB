@@ -13,8 +13,12 @@ import {
   MDBIcon
 } from 'mdb-react-ui-kit';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import { WeflectFlow } from "./WeFlectComponents/react/WeflectFlow";
+import { createWeflectServer } from "./WeFlectComponents/server/weflectServer";
 
 export const LOCAL_USERS_KEY: string = 'kaite-local-users';
+
+const server = createWeflectServer(); // POSTs to /api/session and /api/message on this origin
 
 interface UploadedConversation {
   name: string;
