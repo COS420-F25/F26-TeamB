@@ -6,7 +6,7 @@
  - [Jaron](https://github.com/blarnix), *Lead Developer*
  - [Stephen](https://github.com/stephenm05), *Co-Lead Developer*
  - [Ryan](https://github.com/ryanshorey), *Developer*
- - [Nick](https://github.com/Nicholas-Munro), *Designer*
+ - [Nick](https://github.com/Nicholas-Munro), *Lead Designer*
 ## Mission Statement:
 Empowering users to build effective AI habits aligned with long-term goals.
 ## Problem Statement:
@@ -16,7 +16,9 @@ Reflecting on your agentic use can help improve your ability to use it, however,
 
 Building expertise takes time, experimentation, and reflection, and to build that expertise you need to do the first two things, which are already hard. Somewhere in the world, there are people who have taken the time and effort to gain expertise, created documents, recommendations, and research on how to use generative AI more effectively or may abstain on its use at all, depending. If users had access to research-based or expert advice and practices around using it, they might learn from such resources and obtain more knowledge. How might we help people use generative AI better in a way that helps them notice the flaws and issues in their agentic interactions – by adding known errors, doesn't cause ignorant dependence, is more collaborative, helps people notice what could be changed for the better (via expert advice/resources), and actually become more reflective by improving their agentic use?
 
-
+***
+## App: KAIte
+KAIte (*pronounced: kīte*) is an application extension built off of YESS Lab's WeFlect AI reflection application with an optional testing playground for improving users’ agentic error-detection skills and history tracking progress over time through a user account integrated with the University of Maine’s internal communication platform, CollaborAITE.
 
 ***
 ## Prerequisites:
