@@ -21,13 +21,14 @@ Building expertise takes time, experimentation, and reflection, and to build tha
 KAIte (*pronounced: kīte*) is an application extension built off of YESS Lab's WeFlect AI reflection application with an optional testing playground for improving users’ agentic error-detection skills and history tracking progress over time through a user account integrated with the University of Maine’s internal communication platform, CollaborAITE.
 
 ***
-## Prerequisites:
+## Environment Setup:
+### Prerequisites:
 - A computer
 - A shell
 - NPM
 - git
 
-## Build Instructions:
+### Build Instructions:
 1. Clone the repository:
 ```bash
 git clone https://github.com/COS420-F25/F26-TeamB.git
@@ -49,8 +50,7 @@ npm install
 npm run start
 ```
 
-### Local authentication
-
+#### Local Authentication:
 Accounts created through the sign-up form are stored in the browser's local
 storage. This is suitable for local development only; a backend authentication
 service is required for production use.
