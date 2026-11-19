@@ -1,0 +1,230 @@
+.goal-config-page {
+  --goal-bg: #ebede9;
+  --goal-surface: #f7f8f3;
+  --goal-surface-hover: #eef0eb;
+  --goal-text: #252824;
+  --goal-muted: #62675f;
+  --goal-border: #c4c8bf;
+  --goal-accent: #655b5b;
+  --goal-accent-hover: #796e6e;
+  --goal-icon-bg: #dfe5dc;
+  --goal-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+
+  min-height: 100vh;
+  background: var(--goal-bg);
+  color: var(--goal-text);
+  font-family: 'Libre Franklin', Arial, Helvetica, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  .goal-config-page {
+    --goal-bg: #121212;
+    --goal-surface: #332d2d;
+    --goal-surface-hover: #403939;
+    --goal-text: #ffffff;
+    --goal-muted: #a9a3a3;
+    --goal-border: #777171;
+    --goal-accent: #655b5b;
+    --goal-accent-hover: #796e6e;
+    --goal-icon-bg: #494141;
+    --goal-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Navbar */
+.goal-config-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--goal-surface);
+  border-bottom: 1px solid var(--goal-border);
+  padding: 0.75rem 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.goal-config-navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.goal-config-navbar-links a {
+  color: var(--goal-text);
+  text-decoration: none;
+}
+
+.goal-config-avatar {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: var(--goal-accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+}
+
+/* Layout */
+.goal-config-body {
+  padding: 2rem;
+}
+
+/* Goal list pane */
+.goal-list-card {
+  display: flex;
+  flex-direction: column;
+  height: 75vh;
+  border-radius: 1rem;
+  border: 1px solid var(--goal-border);
+  background: var(--goal-surface);
+  box-shadow: var(--goal-shadow);
+  overflow: hidden;
+}
+
+.goal-list-header {
+  background: var(--goal-surface);
+  border-bottom: 1px solid var(--goal-border);
+  font-weight: 700;
+}
+
+.goal-list-scroll {
+  flex: 1 1 0;
+  overflow-y: auto;
+  padding: 0.5rem 0;
+}
+
+.goal-list-item {
+  background: transparent;
+  color: var(--goal-text);
+  border: none;
+  border-bottom: 1px solid var(--goal-border);
+  cursor: pointer;
+}
+
+.goal-list-item:hover {
+  background: var(--goal-surface-hover);
+}
+
+.goal-list-item--selected {
+  background: var(--goal-icon-bg);
+  font-weight: 600;
+}
+
+.goal-list-footer {
+  background: var(--goal-surface);
+  border-top: 1px solid var(--goal-border);
+}
+
+/* Detail pane */
+.goal-detail-card {
+  min-height: 75vh;
+  border-radius: 1rem;
+  border: 1px solid var(--goal-border);
+  background: var(--goal-surface);
+  box-shadow: var(--goal-shadow);
+}
+
+.goal-detail-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.goal-detail-description {
+  color: var(--goal-muted);
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.goal-detail-subheading {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.goal-update-scroll {
+  max-height: 260px;
+  overflow-y: auto;
+  margin-bottom: 1.25rem;
+}
+
+.goal-update-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.goal-update-item {
+  border-bottom: 1px solid var(--goal-border);
+  padding: 0.6rem 0;
+}
+
+.goal-update-timestamp {
+  font-size: 0.75rem;
+  color: var(--goal-muted);
+}
+
+.goal-update-text {
+  margin: 0.25rem 0 0;
+}
+
+/* Update form */
+.goal-update-input {
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid var(--goal-border);
+  background: var(--goal-surface);
+  color: var(--goal-text);
+  padding: 0.6rem;
+  resize: vertical;
+}
+
+.goal-update-form-row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.goal-update-timestamp-input {
+  border-radius: 0.5rem;
+  border: 1px solid var(--goal-border);
+  background: var(--goal-surface);
+  color: var(--goal-text);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.85rem;
+  max-width: 220px;
+}
+
+/* Shared buttons */
+.goal-config-outline-button {
+  background: var(--goal-surface);
+  color: var(--goal-text);
+  border: 1px solid var(--goal-border);
+  border-radius: 0.5rem;
+  padding: 0.6rem 1rem;
+  font-weight: 600;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.goal-config-outline-button:hover {
+  background: var(--goal-surface-hover);
+  border-color: var(--goal-muted);
+}
+
+.goal-config-cta-button {
+  background-color: var(--goal-accent);
+  border-color: var(--goal-accent);
+  color: #fff;
+  border-radius: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  font-weight: 600;
+}
+
+.goal-config-cta-button:hover {
+  background-color: var(--goal-accent-hover);
+  border-color: var(--goal-accent-hover);
+}
