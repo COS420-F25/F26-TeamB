@@ -11,20 +11,9 @@ import {
   MDBIcon
 } from 'mdb-react-ui-kit';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import { Goal } from './GoalConfigTypes'
 import ScrollableGoalList from './ScrollableGoalList';
 import SelectedGoalPane from './SelectedGoalPane';
-
-interface GoalUpdate {
-    updateDesc: string
-    completed: Date
-}
-
-interface Goal {
-    title: string
-    description: string
-    created: Date
-    updates: GoalUpdate[]
-}
 
 interface GoalConfigScreenProps {
     screenSetter: React.Dispatch<React.SetStateAction<number>>;
