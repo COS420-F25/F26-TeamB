@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "mdb-react-ui-kit": "^10.0.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^8.0.0"
   }
 }
