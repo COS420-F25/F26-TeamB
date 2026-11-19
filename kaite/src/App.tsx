@@ -26,10 +26,7 @@ function App(): React.JSX.Element {
   return (
     <div>
     {screenComponents[screenIndex]}
-    <WeflectFlow server={server} />
     </div>
-
-    
   );
 }
 
