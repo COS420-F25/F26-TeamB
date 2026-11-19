@@ -5,17 +5,6 @@ import './WeFlectComponents/styles/kaite.css';
 import LoginScreen from './LoginScreen';
 import MainDashboardScreen from './MainDashboardScreen';
 import UploadAILogScreen from './UploadAILogScreen';
-import {DragEvent,useState} from "react";
-import {
-  MDBBtn,
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-  MDBCard,
-  MDBCardBody,
-  MDBInput,
-  MDBIcon
-} from 'mdb-react-ui-kit';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import { WeflectFlow } from "./WeFlectComponents/react/WeflectFlow";
 import { createWeflectServer } from "./WeFlectComponents/server/weflectServer";
