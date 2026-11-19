@@ -1,20 +1,54 @@
-import { beforeEach, expect, test } from '@jest/globals';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import ErrorInsertionModeScreen from './ErrorInsertionModeScreen'
+import { injectError } from './errorInjector';
 
 
-//Test 1: Agent gives a good response if the User does catch the error
-test('agent gives positive response if the user does catch the error', () => {
-    render(<ErrorInsertionModeScreen />);
-    //User types message, engages with agent
+// Mock whatever module actually produces the agent's response + injects the error.
+// Replace path + exported function name with the real ones.
 
-    //Agent responds, gives a planted error
+jest.mock('../utils/errorInjector', () => ({
+      injectError: jest.fn(),
+}));
 
-    //User catches the error
+describe('ErrorInsertionModeScreen', () => { //!!Needs to be replaced - When errorInjector is actually completed!!
+    beforeEach(() => {
+        jest.clearAllMocks();
+    });
 
-    //Expect: agent to give a positive response that the User caught the error
+    //Test 1: Agent gives a good response if the User does catch the error
+    test('agent gives positive response if the user does catch the error', async () => {
+        // Arrange: force the injector to return a response with a known, injected error
+        (injectError as jest.Mock).mockReturnValue({
+        text: 'The mitochondria is the capital of France.', // planted error
+        error: {
+            id: 'err-1',
+            type: 'factual',
+            originalText: 'The mitochondria is the powerhouse of the cell.',
+            alteredText: 'The mitochondria is the capital of France.',
+            explanation: 'Swapped a fact for an unrelated false statement.',
+        },
+        });
 
+        render(<ErrorInsertionModeScreen />); //render screen
+        
+
+        //Agent responds, gives a planted error
+        const agentMessage = await screen.findByText(
+        /The mitochondria is the capital of France\./i
+        );
+        expect(agentMessage).toBeInTheDocument();
+
+        //User catches the error !!WILL NEED TO BE CHANGED WHEN RYAN FINISHES HIS BRANCH!!
+        const flagButton = screen.getByRole('button', { name: /flag|this looks wrong/i });
+        await userEvent.click(flagButton);
+
+        //Expect: agent to give a positive response that the User caught the error
+        const positiveResponse = await screen.findByText(
+        /Inserted error caught/i
+        );
+        expect(positiveResponse).toBeInTheDocument();
+    });
 });
 
 
