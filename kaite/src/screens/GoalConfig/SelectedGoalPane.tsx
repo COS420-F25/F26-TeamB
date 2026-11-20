@@ -1,53 +1,92 @@
 import React from 'react';
-import { MDBCard, MDBCardBody, MDBBtn } from 'mdb-react-ui-kit';
+import { MDBCard, MDBCardBody, MDBBtn, MDBTextArea, MDBInput } from 'mdb-react-ui-kit';
+import { Goal, GoalUpdate } from './GoalConfigTypes'
 
-const PLACEHOLDER_UPDATES = [
-  { id: 1, timestamp: '2025-11-08 09:14', text: 'Drafted the outline myself before asking AI for feedback.' },
-  { id: 2, timestamp: '2025-11-10 21:02', text: 'Caught an AI suggestion that was factually wrong before using it.' },
-];
+interface SelectedGoalPaneProps {
+    goals: Goal[],
+    goalsSetter: (newGoals: Goal[]) => void,
+    selected: number,
+    inCreateMode: boolean
+}
 
-function SelectedGoalPane(): React.JSX.Element {
-  return (
-    <MDBCard className="goal-detail-card">
-      <MDBCardBody className="goal-detail-body">
-        <h1 className="goal-detail-title">Reduce reliance on AI for first drafts</h1>
-        <p className="goal-detail-description">
-          Write the first version of any assignment or project myself before consulting
-          an AI tool, so I build and keep my own first-pass thinking skills.
-        </p>
+function SelectedGoalPane({ goals, goalsSetter, selected, inCreateMode}: SelectedGoalPaneProps): React.JSX.Element {
+    const [newUpdate, setNewUpdate] = React.useState<string>('');
+    const [updateTimestamp, setUpdateTimestamp] = React.useState<string>('');
 
-        <h3 className="goal-detail-subheading">Progress updates</h3>
-        <div className="goal-update-scroll">
-          <ul className="goal-update-list">
-            {PLACEHOLDER_UPDATES.map((update) => (
-              <li key={update.id} className="goal-update-item">
-                <span className="goal-update-timestamp">{update.timestamp}</span>
-                <p className="goal-update-text">{update.text}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
+    let currentGoal: Goal = goals[selected];
 
-        <div className="goal-update-form">
-          <textarea
-            className="goal-update-input"
-            placeholder="Add a progress update..."
-            rows={3}
-          />
-          <div className="goal-update-form-row">
-            <input
-              type="text"
-              className="goal-update-timestamp-input"
-              placeholder="Custom date/time (optional)"
+    function updateNewUpdate(event: React.ChangeEvent<HTMLTextAreaElement>): void {
+        setNewUpdate(event.target.value);
+    }
+    function updateUpdateTimestamp(event: React.ChangeEvent<HTMLInputElement>): void {
+        setUpdateTimestamp(event.target.value);
+    }
+
+    function parseCustomTimestamp(): Date | null {
+        if(updateTimestamp.length === 10) {
+            let month: number = parseInt(updateTimestamp.slice(0, 2));
+            let day: number = parseInt(updateTimestamp.slice(3, 5));
+            let year: number = parseInt(updateTimestamp.slice(6));
+            if (month === month && day === day && year === year) { // This checks for NaN
+                return new Date(year, month, day);
+            }
+        }
+        return new Date(); // Defaults to right now
+    }
+    function addGoalUpdate(): void {
+        const newUpdateCreated: Date = parseCustomTimestamp() ?? new Date();
+        const newUpdateList: GoalUpdate[] = [...currentGoal.updates, {updateDesc: newUpdate, completed: newUpdateCreated}];
+        const goalsWithUpdate: Goal[] = goals.map((goal, index): Goal => {
+            return index === selected ? {...goal, updates: newUpdateList} : goal
+        });
+        goalsSetter(goalsWithUpdate);
+    }
+  
+    return (
+        <MDBCard className="goal-detail-card">
+        <MDBCardBody className="goal-detail-body">
+            <h1 className="goal-detail-title">{currentGoal.title}</h1>
+            <p className="goal-detail-description">
+              {currentGoal.description}
+            </p>
+
+            <h3 className="goal-detail-subheading">Progress updates</h3>
+            <div className="goal-update-scroll">
+            <ul className="goal-update-list">
+                {currentGoal.updates.map((update) => (
+                <li key={update.updateDesc} className="goal-update-item">
+                    <span className="goal-update-timestamp">{update.completed.toDateString()}</span>
+                    <p className="goal-update-text">{update.updateDesc}</p>
+                </li>
+                ))}
+            </ul>
+            </div>
+
+            <div className="goal-update-form">
+            <MDBTextArea
+                className="goal-update-input"
+                placeholder="Add a progress update..."
+                rows={3}
+                value={newUpdate}
+                onChange={updateNewUpdate}
             />
-            <MDBBtn type="button" className="goal-config-cta-button">
-              Add progress update
-            </MDBBtn>
-          </div>
-        </div>
-      </MDBCardBody>
-    </MDBCard>
-  );
+            <div className="goal-update-form-row">
+                <MDBInput
+                  type="text"
+                  className="goal-update-timestamp-input"
+                  label="Custom date (optional)"
+                  placeholder="MM/DD/YYYY"
+                  value={updateTimestamp}
+                  onChange={updateUpdateTimestamp}
+                />
+                <MDBBtn type="button" onClick={addGoalUpdate} className="goal-config-cta-button">
+                  Add progress update
+                </MDBBtn>
+            </div>
+            </div>
+        </MDBCardBody>
+        </MDBCard>
+    );
 }
 
 export default SelectedGoalPane;
