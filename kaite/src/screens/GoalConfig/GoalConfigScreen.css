@@ -119,11 +119,19 @@
 
 /* Detail pane */
 .goal-detail-card {
-  min-height: 75vh;
+  height: 75vh;
   border-radius: 1rem;
   border: 1px solid var(--goal-border);
   background: var(--goal-surface);
   box-shadow: var(--goal-shadow);
+  overflow: hidden;
+}
+
+.goal-detail-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  min-height: 0;
 }
 
 .goal-detail-title {
@@ -146,6 +154,7 @@
 
 .goal-update-scroll {
   max-height: 260px;
+  flex: 1 1 0;
   overflow-y: auto;
   margin-bottom: 1.25rem;
 }

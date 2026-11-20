@@ -1,5 +1,5 @@
 import React from 'react';
-import { MDBCard, MDBCardBody, MDBBtn, MDBTextArea, MDBInput } from 'mdb-react-ui-kit';
+import { MDBCard, MDBCardBody, MDBBtn, MDBTextArea, MDBInput, MDBRow, MDBCol } from 'mdb-react-ui-kit';
 import { Goal, GoalUpdate } from './GoalConfigTypes'
 
 interface SelectedGoalPaneProps {
@@ -15,7 +15,7 @@ function SelectedGoalPane({ goals, goalsSetter, selected, isCreateMode}: Selecte
 
     let currentGoal: Goal = goals[selected];
 
-    function updateNewUpdate(event: React.ChangeEvent<HTMLTextAreaElement>): void {
+    function updateNewUpdate(event: React.ChangeEvent<HTMLInputElement>): void {
         setNewUpdate(event.target.value);
     }
     function updateUpdateTimestamp(event: React.ChangeEvent<HTMLInputElement>): void {
@@ -57,20 +57,19 @@ function SelectedGoalPane({ goals, goalsSetter, selected, isCreateMode}: Selecte
             <ul className="goal-update-list">
                 {currentGoal.updates.map((update) => (
                 <li key={update.updateDesc} className="goal-update-item">
-                    <span className="goal-update-timestamp">{update.completed.toDateString()}</span>
-                    <p className="goal-update-text">{update.updateDesc}</p>
+                    <p className="goal-update-text"><span className="goal-update-timestamp">{`${update.completed.toDateString()} - `}</span>
+                    {update.updateDesc}</p>
                 </li>
                 ))}
             </ul>
             </div>
 
             <div className="goal-update-form">
-            <MDBTextArea
+            <MDBInput
                 className="goal-config-input"
                 placeholder="Add a progress update..."
                 label="New update"
                 labelClass="goal-config-input-label"
-                rows={3}
                 value={newUpdate}
                 onChange={updateNewUpdate}
             />
