@@ -8,14 +8,17 @@ import {
   MDBListGroup,
   MDBListGroupItem,
 } from 'mdb-react-ui-kit';
+import { Goal } from './GoalConfigTypes'
 
-const PLACEHOLDER_GOALS = [
-  { id: 1, title: 'Reduce reliance on AI for first drafts', selected: true },
-  { id: 2, title: 'Verify AI-generated citations', selected: false },
-  { id: 3, title: 'Use AI for brainstorming only', selected: false },
-];
+interface ScrollableGoalListProps {
+    goals: Goal[],
+    selected: number | null,
+    selectedSetter: (newSelected: number) => void,
+    inCreateMode: boolean,
+    inCreateModeSwapper: () => void
+}
 
-function ScrollableGoalList(): React.JSX.Element {
+function ScrollableGoalList({goals, selected, selectedSetter, inCreateMode, inCreateModeSwapper}: ScrollableGoalListProps): React.JSX.Element {
   return (
     <MDBCard className="goal-list-card">
       <MDBCardHeader className="goal-list-header">
@@ -24,10 +27,12 @@ function ScrollableGoalList(): React.JSX.Element {
 
       <MDBCardBody className="goal-list-scroll">
         <MDBListGroup className="goal-list-group">
-          {PLACEHOLDER_GOALS.map((goal) => (
+          {goals.map((goal, index) => (
             <MDBListGroupItem
-              key={goal.id}
-              className={`goal-list-item ${goal.selected ? 'goal-list-item--selected' : ''}`}
+              key={goal.title}
+              disabled={inCreateMode}
+              onClick={() => {selectedSetter(index)}}
+              className={`goal-list-item ${index===selected ? 'goal-list-item--selected' : ''}`}
             >
               {goal.title}
             </MDBListGroupItem>
@@ -36,7 +41,7 @@ function ScrollableGoalList(): React.JSX.Element {
       </MDBCardBody>
 
       <MDBCardFooter className="goal-list-footer">
-        <MDBBtn type="button" className="goal-config-outline-button w-100">
+        <MDBBtn type="button" onClick={inCreateModeSwapper} disabled={inCreateMode} className="goal-config-outline-button w-100">
           + Create New Goal
         </MDBBtn>
       </MDBCardFooter>
