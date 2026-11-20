@@ -1,10 +1,15 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import FramingChoicesScreen from './FramingChoicesScreen';
+import { FramingScreen } from "./FramingChoicesScreen";
+import { FRAMING_DIMENSIONS, FramingPreferences } from "./Logic/framingIndex";
 
 //Test for rendering framing choices component
 test('renders framing choices', () => {
-    render(<FramingChoicesScreen />)
+    render(<FramingScreen onStart={function (framing: FramingPreferences): void {
+        throw new Error('Function not implemented.');
+    } } onBack={function (): void {
+        throw new Error('Function not implemented.');
+    } } />)
 
     //Verify a framing choices component renderd
     const framingChoices = screen.getByRole('framingChoices',{});
@@ -12,7 +17,11 @@ test('renders framing choices', () => {
 })
 //Test for rendering timer component 
 test('renders timerSetter component', () => {
-    render(<FramingChoicesScreen />)
+    render(<FramingScreen onStart={function (framing: FramingPreferences): void {
+        throw new Error('Function not implemented.');
+    } } onBack={function (): void {
+        throw new Error('Function not implemented.');
+    } } />)
 
     //Verify a timer component renderd
     const timerSetter = screen.getByRole('timerSetter',{});
@@ -20,7 +29,11 @@ test('renders timerSetter component', () => {
 })
 //Test for rendering goals components
 test('renders goalSetter components', () => {
-    render(<FramingChoicesScreen />)
+    render(<FramingScreen onStart={function (framing: FramingPreferences): void {
+        throw new Error('Function not implemented.');
+    } } onBack={function (): void {
+        throw new Error('Function not implemented.');
+    } } />)
 
     //Verify a goalSetter component renderd
     const goalSetter = screen.getByRole('goalSetter',{});
