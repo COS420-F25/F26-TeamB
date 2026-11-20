@@ -30,9 +30,8 @@ function ScrollableGoalList({goals, selected, selectedSetter, isCreateMode, isCr
           {goals.map((goal, index) => (
             <MDBListGroupItem
               key={goal.title}
-              disabled={isCreateMode}
               onClick={() => {selectedSetter(index)}}
-              className={`goal-list-item ${index===selected ? 'goal-list-item--selected' : ''}`}
+              className={`goal-list-item${isCreateMode ? '-disabled' : ''} ${index===selected ? 'goal-list-item--selected' : ''}`}
             >
               {goal.title}
             </MDBListGroupItem>

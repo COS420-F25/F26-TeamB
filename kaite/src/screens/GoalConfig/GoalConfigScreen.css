@@ -102,6 +102,12 @@
   border-bottom: 1px solid var(--goal-border);
   cursor: pointer;
 }
+.goal-list-item-disabled {
+  background: transparent;
+  color: var(--goal-muted);
+  border-color: var(--goal-border);
+  cursor: not-allowed;
+}
 
 .goal-list-item:hover {
   background: var(--goal-surface-hover);
