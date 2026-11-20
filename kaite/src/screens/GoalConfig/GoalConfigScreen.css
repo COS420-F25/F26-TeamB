@@ -220,19 +220,40 @@
 
 /* Shared buttons */
 .goal-config-outline-button {
-  background: var(--goal-surface);
+  background-color: var(--goal-surface);
   color: var(--goal-text);
   border: 1px solid var(--goal-border);
   border-radius: 0.5rem;
   padding: 0.6rem 1rem;
   font-weight: 600;
   transition: background 0.15s ease, border-color 0.15s ease;
+  box-shadow: none;
 }
-
-.goal-config-outline-button:hover {
-  background: var(--goal-surface-hover);
+.goal-config-outline-button:hover,
+.goal-config-outline-button:focus,
+.goal-config-outline-button:active {
+  background-color: var(--goal-surface-hover);
   border-color: var(--goal-muted);
 }
+
+.goal-config-outline-button-disabled {
+  background-color: var(--goal-surface-hover);
+  color: var(--goal-text);
+  border: 1px solid var(--goal-muted);
+  border-radius: 0.5rem;
+  padding: 0.6rem 1rem;
+  font-weight: 600;
+  box-shadow: none;
+  opacity: .65;
+  pointer-events: none
+}
+.goal-config-outline-button-disabled:hover,
+.goal-config-outline-button-disabled:focus,
+.goal-config-outline-button-disabled:active {
+  background-color: var(--goal-surface-hover);
+  border-color: var(--goal-muted);
+}
+
 
 .goal-config-cta-button {
   background-color: var(--goal-accent);
@@ -241,9 +262,12 @@
   border-radius: 0.5rem;
   padding: 0.6rem 1.25rem;
   font-weight: 600;
+  box-shadow: none;
 }
 
-.goal-config-cta-button:hover {
+.goal-config-cta-button:hover,
+.goal-config-cta-button:focus,
+.goal-config-cta-button:active {
   background-color: var(--goal-accent-hover);
   border-color: var(--goal-accent-hover);
 }
