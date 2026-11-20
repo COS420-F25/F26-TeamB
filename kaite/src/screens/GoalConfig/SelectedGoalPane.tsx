@@ -6,10 +6,10 @@ interface SelectedGoalPaneProps {
     goals: Goal[],
     goalsSetter: (newGoals: Goal[]) => void,
     selected: number,
-    inCreateMode: boolean
+    isCreateMode: boolean
 }
 
-function SelectedGoalPane({ goals, goalsSetter, selected, inCreateMode}: SelectedGoalPaneProps): React.JSX.Element {
+function SelectedGoalPane({ goals, goalsSetter, selected, isCreateMode}: SelectedGoalPaneProps): React.JSX.Element {
     const [newUpdate, setNewUpdate] = React.useState<string>('');
     const [updateTimestamp, setUpdateTimestamp] = React.useState<string>('');
 
@@ -64,8 +64,10 @@ function SelectedGoalPane({ goals, goalsSetter, selected, inCreateMode}: Selecte
 
             <div className="goal-update-form">
             <MDBTextArea
-                className="goal-update-input"
+                className="goal-config-input"
                 placeholder="Add a progress update..."
+                label="New update"
+                labelClass="goal-config-input-label"
                 rows={3}
                 value={newUpdate}
                 onChange={updateNewUpdate}
@@ -75,6 +77,7 @@ function SelectedGoalPane({ goals, goalsSetter, selected, inCreateMode}: Selecte
                   type="text"
                   className="goal-update-timestamp-input"
                   label="Custom date (optional)"
+                  labelClass="goal-config-input-label"
                   placeholder="MM/DD/YYYY"
                   value={updateTimestamp}
                   onChange={updateUpdateTimestamp}

@@ -14,11 +14,11 @@ interface ScrollableGoalListProps {
     goals: Goal[],
     selected: number | null,
     selectedSetter: (newSelected: number) => void,
-    inCreateMode: boolean,
-    inCreateModeSwapper: () => void
+    isCreateMode: boolean,
+    isCreateModeSwapper: () => void
 }
 
-function ScrollableGoalList({goals, selected, selectedSetter, inCreateMode, inCreateModeSwapper}: ScrollableGoalListProps): React.JSX.Element {
+function ScrollableGoalList({goals, selected, selectedSetter, isCreateMode, isCreateModeSwapper}: ScrollableGoalListProps): React.JSX.Element {
   return (
     <MDBCard className="goal-list-card">
       <MDBCardHeader className="goal-list-header">
@@ -30,7 +30,7 @@ function ScrollableGoalList({goals, selected, selectedSetter, inCreateMode, inCr
           {goals.map((goal, index) => (
             <MDBListGroupItem
               key={goal.title}
-              disabled={inCreateMode}
+              disabled={isCreateMode}
               onClick={() => {selectedSetter(index)}}
               className={`goal-list-item ${index===selected ? 'goal-list-item--selected' : ''}`}
             >
@@ -41,7 +41,7 @@ function ScrollableGoalList({goals, selected, selectedSetter, inCreateMode, inCr
       </MDBCardBody>
 
       <MDBCardFooter className="goal-list-footer">
-        <MDBBtn type="button" onClick={inCreateModeSwapper} disabled={inCreateMode} className="goal-config-outline-button w-100">
+        <MDBBtn type="button" onClick={isCreateModeSwapper} disabled={isCreateMode} className="goal-config-outline-button w-100">
           + Create New Goal
         </MDBBtn>
       </MDBCardFooter>
