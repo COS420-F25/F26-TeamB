@@ -1,5 +1,5 @@
 import React from 'react';
-import { MDBCard, MDBCardBody, MDBBtn, MDBTextArea, MDBInput } from 'mdb-react-ui-kit';
+import { MDBCard, MDBCardBody, MDBBtn, MDBTextArea, MDBInput, MDBRow, MDBCol } from 'mdb-react-ui-kit';
 import { Goal, GoalUpdate } from './GoalConfigTypes'
 
 interface NewGoalPaneProps {
@@ -51,9 +51,15 @@ function NewGoalPane({ goals, goalsSetter, isCreateModeSwapper}: NewGoalPaneProp
                 onChange={updateGoalDesc}
               />
             </div>
-            <MDBBtn type="button" onClick={addNewGoal} className="goal-config-cta-button">
+            <MDBRow>
+              <MDBCol size="sm" className="d-flex gap-2"><MDBBtn type="button" onClick={addNewGoal} className="goal-config-cta-button">
                 Add new goal
-            </MDBBtn>
+              </MDBBtn>
+              {goals.length > 0 &&
+              <MDBBtn type="button" onClick={isCreateModeSwapper} className="goal-config-cta-button">
+                Cancel
+              </MDBBtn>}</MDBCol>
+            </MDBRow>
 
             {/* <h3 className="goal-detail-subheading">Progress updates</h3>
             <div className="goal-update-scroll">
