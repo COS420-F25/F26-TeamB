@@ -40,6 +40,8 @@ function SelectedGoalPane({ goals, goalsSetter, selected, isCreateMode}: Selecte
             return index === selected ? {...goal, updates: newUpdateList} : goal
         });
         goalsSetter(goalsWithUpdate);
+        setNewUpdate("");
+        setUpdateTimestamp("");
     }
   
     return (
