@@ -14,6 +14,7 @@ import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import { Goal } from './GoalConfigTypes'
 import ScrollableGoalList from './ScrollableGoalList';
 import SelectedGoalPane from './SelectedGoalPane';
+import NewGoalPane from './NewGoalPane';
 
 interface GoalConfigScreenProps {
     screenSetter: React.Dispatch<React.SetStateAction<number>>;
@@ -63,10 +64,27 @@ function GoalConfigScreen({ screenSetter, messageSetter, message }: GoalConfigSc
 
         <MDBRow className="goal-config-body">
             <MDBCol md="4" lg="3" className="goal-config-list-col">
-            <ScrollableGoalList />
+            <ScrollableGoalList
+              goals={goals}
+              selected={selected}
+              selectedSetter={selectedSetter}
+              isCreateMode={isCreateMode}
+              isCreateModeSwapper={isCreateModeSwapper}
+            />
             </MDBCol>
             <MDBCol md="8" lg="9" className="goal-config-detail-col">
-            <SelectedGoalPane />
+            {isCreateMode ? 
+            <NewGoalPane
+              goals={goals}
+              goalsSetter={goalsSetter}
+              isCreateModeSwapper={isCreateModeSwapper}
+            /> :
+            <SelectedGoalPane
+              goals={goals}
+              goalsSetter={goalsSetter}
+              selected={selected ?? goals.length-1}
+              isCreateMode={isCreateMode}
+            />}
             </MDBCol>
         </MDBRow>
         </MDBContainer>
