@@ -1,5 +1,5 @@
 import React from 'react';
-import { MDBCard, MDBCardBody, MDBBtn, MDBTextArea, MDBInput, MDBRow, MDBCol } from 'mdb-react-ui-kit';
+import { MDBCard, MDBCardBody, MDBBtn, MDBInput } from 'mdb-react-ui-kit';
 import { Goal, GoalUpdate } from './GoalConfigTypes'
 
 interface SelectedGoalPaneProps {

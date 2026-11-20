@@ -15,7 +15,7 @@ interface ScrollableGoalListProps {
     selected: number | null,
     selectedSetter: (newSelected: number) => void,
     isCreateMode: boolean,
-    isCreateModeSwapper: () => void
+    isCreateModeSwapper: (newSelected: number | null) => void
 }
 
 function ScrollableGoalList({goals, selected, selectedSetter, isCreateMode, isCreateModeSwapper}: ScrollableGoalListProps): React.JSX.Element {
@@ -40,7 +40,7 @@ function ScrollableGoalList({goals, selected, selectedSetter, isCreateMode, isCr
       </MDBCardBody>
 
       <MDBCardFooter className="goal-list-footer">
-        <MDBBtn type="button" onClick={isCreateModeSwapper} disabled={isCreateMode} className="goal-config-outline-button w-100">
+        <MDBBtn type="button" onClick={() => {isCreateModeSwapper(null)}} disabled={isCreateMode} className="goal-config-outline-button w-100">
           + Create New Goal
         </MDBBtn>
       </MDBCardFooter>

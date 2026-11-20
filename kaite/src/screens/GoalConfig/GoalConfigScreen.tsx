@@ -40,14 +40,9 @@ function GoalConfigScreen({ screenSetter, messageSetter, message }: GoalConfigSc
     function selectedSetter(newSelected: number): void {
         setSelected(newSelected);
     }
-    function isCreateModeSwapper(): void {
-        if (isCreateMode) {
-            setIsCreateMode(false);
-            setSelected(goals.length-1);
-        } else {
-            setIsCreateMode(true);
-            setSelected(null);
-        }
+    function isCreateModeSwapper(newSelected: number | null): void {
+        setSelected(newSelected);
+        setIsCreateMode(!isCreateMode);
     }
     
     return (

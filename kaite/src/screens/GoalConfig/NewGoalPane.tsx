@@ -5,7 +5,7 @@ import { Goal, GoalUpdate } from './GoalConfigTypes'
 interface NewGoalPaneProps {
     goals: Goal[],
     goalsSetter: (newGoals: Goal[]) => void,
-    isCreateModeSwapper: () => void
+    isCreateModeSwapper: (newSelected: number) => void
 }
 
 function NewGoalPane({ goals, goalsSetter, isCreateModeSwapper}: NewGoalPaneProps): React.JSX.Element {
@@ -22,7 +22,7 @@ function NewGoalPane({ goals, goalsSetter, isCreateModeSwapper}: NewGoalPaneProp
     function addNewGoal(): void {
         const newGoals: Goal[] = [...goals, {title: goalTitle, description: goalDesc, created: new Date(), updates: []}]
         goalsSetter(newGoals);
-        isCreateModeSwapper();
+        isCreateModeSwapper(goals.length);
     }
   
     return (
@@ -56,7 +56,7 @@ function NewGoalPane({ goals, goalsSetter, isCreateModeSwapper}: NewGoalPaneProp
                 Add new goal
               </MDBBtn>
               {goals.length > 0 &&
-              <MDBBtn type="button" onClick={isCreateModeSwapper} className="goal-config-cta-button">
+              <MDBBtn type="button" onClick={() => {isCreateModeSwapper(goals.length-1)}} className="goal-config-cta-button">
                 Cancel
               </MDBBtn>}</MDBCol>
             </MDBRow>
