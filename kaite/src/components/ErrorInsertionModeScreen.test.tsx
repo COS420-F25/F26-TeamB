@@ -7,7 +7,7 @@ import { injectError } from './errorInjector';
 // Mock whatever module actually produces the agent's response + injects the error.
 // Replace path + exported function name with the real ones.
 
-jest.mock('../utils/errorInjector', () => ({
+jest.mock('./errorInjector', () => ({
       injectError: jest.fn(),
 }));
 
