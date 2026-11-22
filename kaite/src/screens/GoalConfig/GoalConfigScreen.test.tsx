@@ -27,8 +27,8 @@ const newGoal: Goal = {
 }
 
 async function expectNewGoalPane(expectCancelButton: boolean): Promise<void> {
-    expect(screen.getByLabelText(/new goal title/i)).toBeTruthy();
-    expect(screen.getByLabelText(/new goal description/i)).toBeTruthy();
+    expect(screen.getByPlaceholderText(/title for new goal/i)).toBeTruthy();
+    expect(screen.getByPlaceholderText(/description for new goal/i)).toBeTruthy();
     expect(screen.getByRole('button', { name: /add new goal/i })).toBeTruthy();
     if(expectCancelButton) {
         expect(screen.queryByRole('button', { name: /cancel/i })).toBeTruthy(); }
@@ -39,11 +39,17 @@ async function expectNewGoalPane(expectCancelButton: boolean): Promise<void> {
 
 async function expectSelectedGoalPane(expectedGoal: Goal): Promise<void> {
     expect(screen.getByRole('heading', { name: expectedGoal.title })).toBeTruthy();
-    expect(screen.getByLabelText(expectedGoal.description)).toBeTruthy();
+    expect(screen.getByText(expectedGoal.description, { selector: 'p' })).toBeTruthy();
     if(expectedGoal.updates.length > 0) {
-        expect(screen.getByLabelText(expectedGoal.updates[0].updateDesc)).toBeTruthy(); }
-    expect(screen.getByLabelText(/new update/i)).toBeTruthy();
-    expect(screen.getByLabelText(/custom date/i)).toBeTruthy();
+        expect(screen.getByText( (content, element) => {
+            return !!(
+                element &&
+                element.tagName.toLowerCase() === 'li' &&
+                (element.textContent ?? '').includes(expectedGoal.updates[0].updateDesc)
+            );
+        })).toBeTruthy(); }
+    expect(screen.getByPlaceholderText(/add a progress update/i)).toBeTruthy();
+    expect(screen.getByPlaceholderText(/MM\/DD\/YYYY/i)).toBeTruthy();
     expect(screen.getByRole('button', { name: /add progress update/i})).toBeTruthy();
 }
 
@@ -58,8 +64,8 @@ test('renders the goal list', async () => {
     // assertion
     expect(screen.getByRole('heading', { name: /your goals/i })).toBeTruthy();
     expect(screen.getByRole('button', { name: /create new goal/i })).toBeTruthy();
-    expect(screen.getByLabelText(/test goal 1/i)).toBeTruthy();
-    expect(screen.getByLabelText(/test goal 2/i)).toBeTruthy();
+    expect(screen.getByText(/test goal 1/i, { selector: 'li' })).toBeTruthy();
+    expect(screen.getByText(/test goal 2/i, { selector: 'li' })).toBeTruthy();
 });
 
 test('when user has no goals, displays goal creation pane', async () => {
@@ -74,7 +80,7 @@ test('when user has goals, displays selected goal pane', async () => {
     localStorage.setItem(USER_GOALS_KEY, JSON.stringify(populatedGoals));
     render(<GoalConfigScreen screenSetter={() => {}} messageSetter={() => {}} message={""}/>);
     // assertion
-    expectSelectedGoalPane(populatedGoals[-1]);
+    expectSelectedGoalPane(populatedGoals[1]);
 });
 
 test('when selected pane is displayed and user clicks Create New Goal button, displays goal creation pane', async () => {
@@ -95,7 +101,7 @@ test('when goal creation pane is displayed and user clicks Cancel button, displa
     // user action
     await userEvent.click(screen.getByRole('button', { name: /cancel/i }));
     // assertion
-    expectSelectedGoalPane(populatedGoals[-1]);
+    expectSelectedGoalPane(populatedGoals[1]);
 });
 
 test('when goal creation pane is displayed and user clicks Add New Goal button, adds and selects the goal', async () => {
@@ -121,7 +127,7 @@ test('when selected goal pane is displayed and user clicks a different goal, dis
     render(<GoalConfigScreen screenSetter={() => {}} messageSetter={() => {}} message={""}/>);
     const user = userEvent.setup();
     // user action
-    await user.click(screen.getByLabelText(populatedGoals[0].title));
+    await user.click(screen.getByText(populatedGoals[0].title, { selector: 'li' }));
     // assertion
     expectSelectedGoalPane(populatedGoals[0]);
 });
@@ -131,7 +137,7 @@ test('when selected goal pane is displayed and user clicks Add Progress Update b
     localStorage.setItem(USER_GOALS_KEY, JSON.stringify(populatedGoals));
     render(<GoalConfigScreen screenSetter={() => {}} messageSetter={() => {}} message={""}/>);
     const user = userEvent.setup();
-    await user.click(screen.getByLabelText(populatedGoals[0].title));
+    await user.click(screen.getByText(populatedGoals[0].title, { selector: 'li' }));
     // user action
     await user.type(screen.getByPlaceholderText(/add a progress update/i), "Added a new update for testing");
     await user.click(screen.getByRole('button', { name: /add progress update/i}));
@@ -139,5 +145,11 @@ test('when selected goal pane is displayed and user clicks Add Progress Update b
     expect(JSON.parse(localStorage.getItem(USER_GOALS_KEY) ?? '')[0].updates
         .filter((update: GoalUpdate): boolean => {return update.updateDesc === "Added a new update for testing"})
         .length).toBeGreaterThan(0);
-    expect(screen.getByLabelText(/new update for testing/i)).toBeTruthy();
+    expect(screen.getByText( (content, element) => {
+        return !!(
+            element &&
+            element.tagName.toLowerCase() === 'li' &&
+            (element.textContent ?? '').includes("Added a new update for testing")
+        );
+    })).toBeTruthy();
 });
