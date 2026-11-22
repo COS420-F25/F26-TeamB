@@ -1,6 +1,6 @@
 import React from 'react';
 import { MDBCard, MDBCardBody, MDBBtn, MDBTextArea, MDBInput, MDBRow, MDBCol } from 'mdb-react-ui-kit';
-import { Goal, USER_GOALS_KEY } from './GoalConfigTypes'
+import { Goal, USER_GOALS_KEY } from './GoalConfigGlobals'
 
 interface NewGoalPaneProps {
     goals: Goal[],

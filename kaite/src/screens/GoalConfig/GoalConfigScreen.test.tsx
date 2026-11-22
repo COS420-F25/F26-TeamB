@@ -2,7 +2,7 @@ import { beforeEach, expect, test } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import GoalConfigScreen from './GoalConfigScreen';
-import { Goal, GoalUpdate, USER_GOALS_KEY } from './GoalConfigTypes';
+import { Goal, GoalUpdate, USER_GOALS_KEY } from './GoalConfigGlobals';
 
 const populatedGoals: Goal[] = [
     {

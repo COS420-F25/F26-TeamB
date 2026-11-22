@@ -11,7 +11,7 @@ import {
   MDBIcon
 } from 'mdb-react-ui-kit';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
-import { Goal, USER_GOALS_KEY } from './GoalConfigTypes'
+import { Goal, USER_GOALS_KEY } from './GoalConfigGlobals'
 import ScrollableGoalList from './ScrollableGoalList';
 import SelectedGoalPane from './SelectedGoalPane';
 import NewGoalPane from './NewGoalPane';

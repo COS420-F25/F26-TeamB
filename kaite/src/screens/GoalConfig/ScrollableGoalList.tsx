@@ -8,7 +8,7 @@ import {
   MDBListGroup,
   MDBListGroupItem,
 } from 'mdb-react-ui-kit';
-import { Goal } from './GoalConfigTypes'
+import { Goal } from './GoalConfigGlobals'
 
 interface ScrollableGoalListProps {
     goals: Goal[],
