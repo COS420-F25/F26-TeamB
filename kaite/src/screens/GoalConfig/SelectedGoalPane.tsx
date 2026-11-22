@@ -1,6 +1,6 @@
 import React from 'react';
 import { MDBCard, MDBCardBody, MDBBtn, MDBInput } from 'mdb-react-ui-kit';
-import { Goal, GoalUpdate } from './GoalConfigTypes'
+import { Goal, GoalUpdate, USER_GOALS_KEY } from './GoalConfigTypes'
 
 interface SelectedGoalPaneProps {
     goals: Goal[],
@@ -40,6 +40,7 @@ function SelectedGoalPane({ goals, goalsSetter, selected, isCreateMode}: Selecte
             return index === selected ? {...goal, updates: newUpdateList} : goal
         });
         goalsSetter(goalsWithUpdate);
+        localStorage.setItem(USER_GOALS_KEY, JSON.stringify(goalsWithUpdate));
         setNewUpdate("");
         setUpdateTimestamp("");
     }

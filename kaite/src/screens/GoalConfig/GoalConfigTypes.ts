@@ -1,3 +1,5 @@
+export const USER_GOALS_KEY: string = 'kaite-user-goals';
+
 export interface GoalUpdate {
     updateDesc: string
     completed: Date

@@ -1,6 +1,6 @@
 import React from 'react';
 import { MDBCard, MDBCardBody, MDBBtn, MDBTextArea, MDBInput, MDBRow, MDBCol } from 'mdb-react-ui-kit';
-import { Goal, GoalUpdate } from './GoalConfigTypes'
+import { Goal, USER_GOALS_KEY } from './GoalConfigTypes'
 
 interface NewGoalPaneProps {
     goals: Goal[],
@@ -22,6 +22,7 @@ function NewGoalPane({ goals, goalsSetter, isCreateModeSwapper}: NewGoalPaneProp
     function addNewGoal(): void {
         const newGoals: Goal[] = [...goals, {title: goalTitle, description: goalDesc, created: new Date(), updates: []}]
         goalsSetter(newGoals);
+        localStorage.setItem(USER_GOALS_KEY, JSON.stringify(newGoals));
         isCreateModeSwapper(goals.length);
     }
   

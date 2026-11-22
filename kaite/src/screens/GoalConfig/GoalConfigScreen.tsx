@@ -11,7 +11,7 @@ import {
   MDBIcon
 } from 'mdb-react-ui-kit';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
-import { Goal } from './GoalConfigTypes'
+import { Goal, USER_GOALS_KEY } from './GoalConfigTypes'
 import ScrollableGoalList from './ScrollableGoalList';
 import SelectedGoalPane from './SelectedGoalPane';
 import NewGoalPane from './NewGoalPane';
@@ -21,8 +21,6 @@ interface GoalConfigScreenProps {
     messageSetter: React.Dispatch<React.SetStateAction<string>>;
     message?: string;
 }
-
-export const USER_GOALS_KEY: string = 'kaite-user-goals';
 
 function loadUserGoals(): Goal[] {
     const goalsString: string = localStorage.getItem(USER_GOALS_KEY) ?? '[]'
