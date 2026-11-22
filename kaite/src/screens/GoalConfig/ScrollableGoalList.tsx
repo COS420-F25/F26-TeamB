@@ -40,7 +40,7 @@ function ScrollableGoalList({goals, selected, selectedSetter, isCreateMode, isCr
       </MDBCardBody>
 
       <MDBCardFooter className="goal-list-footer">
-        <MDBBtn type="button" onClick={() => {isCreateModeSwapper(null)}} active={!isCreateMode} className={`goal-config-outline-button${isCreateMode ? '-disabled' : ''} w-100`}>
+        <MDBBtn type="button" onClick={() => {if(!isCreateMode) isCreateModeSwapper(null)}} className={`goal-config-outline-button${isCreateMode ? '-disabled' : ''} w-100`}>
           + Create New Goal
         </MDBBtn>
       </MDBCardFooter>

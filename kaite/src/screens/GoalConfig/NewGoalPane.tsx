@@ -23,7 +23,7 @@ function NewGoalPane({ goals, goalsSetter, isCreateModeSwapper}: NewGoalPaneProp
         const newGoals: Goal[] = [...goals, {title: goalTitle, description: goalDesc, created: new Date(), updates: []}]
         goalsSetter(newGoals);
         localStorage.setItem(USER_GOALS_KEY, JSON.stringify(newGoals));
-        isCreateModeSwapper(goals.length);
+        isCreateModeSwapper(newGoals.length-1);
     }
   
     return (

@@ -39,7 +39,6 @@ function GoalConfigScreen({ screenSetter, messageSetter, message }: GoalConfigSc
         setSelected(newSelected);
     }
     function isCreateModeSwapper(newSelected: number | null): void {
-        if(isCreateMode && !(goals.length>0)) { return }
         setSelected(newSelected);
         setIsCreateMode(!isCreateMode);
     }
