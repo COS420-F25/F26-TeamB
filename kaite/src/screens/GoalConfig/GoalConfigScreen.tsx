@@ -11,7 +11,7 @@ import {
   MDBIcon
 } from 'mdb-react-ui-kit';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
-import { Goal, USER_GOALS_KEY } from './GoalConfigGlobals'
+import { Goal, USER_GOALS_KEY, goalReviver } from './GoalConfigGlobals'
 import ScrollableGoalList from './ScrollableGoalList';
 import SelectedGoalPane from './SelectedGoalPane';
 import NewGoalPane from './NewGoalPane';
@@ -24,7 +24,7 @@ interface GoalConfigScreenProps {
 
 function loadUserGoals(): Goal[] {
     const goalsString: string = localStorage.getItem(USER_GOALS_KEY) ?? '[]'
-    return JSON.parse(goalsString);
+    return JSON.parse(goalsString, goalReviver);
 }
 
 function GoalConfigScreen({ screenSetter, messageSetter, message }: GoalConfigScreenProps): React.JSX.Element {

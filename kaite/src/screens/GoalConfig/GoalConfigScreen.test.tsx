@@ -2,7 +2,7 @@ import { beforeEach, expect, test } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import GoalConfigScreen from './GoalConfigScreen';
-import { Goal, GoalUpdate, USER_GOALS_KEY } from './GoalConfigGlobals';
+import { Goal, GoalUpdate, USER_GOALS_KEY, goalReviver } from './GoalConfigGlobals';
 
 const populatedGoals: Goal[] = [
     {
@@ -107,7 +107,7 @@ test('when goal creation pane is displayed and user clicks Add New Goal button, 
     await user.type(screen.getByPlaceholderText(/description for new goal/i), newGoal.description);
     await user.click(screen.getByRole('button', { name: /add new goal/i }));
     // assertion
-    const newGoalInLocalStorage: Goal = JSON.parse(localStorage.getItem(USER_GOALS_KEY) ?? '[]').filter((goal: Goal): boolean => {return goal.title === newGoal.title})[0];
+    const newGoalInLocalStorage: Goal = JSON.parse(localStorage.getItem(USER_GOALS_KEY) ?? '[]', goalReviver).filter((goal: Goal): boolean => {return goal.title === newGoal.title})[0];
     expect(newGoalInLocalStorage.title).toEqual(newGoal.title);
     expect(newGoalInLocalStorage.description).toEqual(newGoal.description);
     expect(newGoalInLocalStorage.created.toDateString()).toEqual(newGoal.created.toDateString());

@@ -11,3 +11,11 @@ export interface Goal {
     created: Date
     updates: GoalUpdate[]
 }
+
+export function goalReviver(key: string, value: unknown): unknown {
+    if ((key === 'completed' || key === 'created') && typeof value === 'string') {
+        const parsed = new Date(value);
+        return isNaN(parsed.getTime()) ? value : parsed;
+    }
+    return value;
+}
