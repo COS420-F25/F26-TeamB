@@ -2,6 +2,24 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { WeflectFlow } from "./WeflectFlow";
 import type { ReflectionServer } from "../server/types";
+import type { ConversationLog } from "../logic/types";
+
+/**
+ * Creating a mock conversation for testing without importing files.
+ */
+const validLog: ConversationLog = { source: "unknown", conversations: [{
+    id: "test-1",
+    title: "Learning TypeScript?",
+    turns: [
+        {role: "user", text: "Can you explain TypeScript?"},
+        {role: "assistant", text: "TypeScript adds types to JavaScript."}
+        ],
+    metadata: { 
+        userPromptCount: 1,
+        turnCount: 2, 
+        multiTurn: false,
+        avgUserPromptLength: 27},
+}]};
 
 /**
  * Creates a mock server for testing.
