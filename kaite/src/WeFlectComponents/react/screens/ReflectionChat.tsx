@@ -15,6 +15,8 @@ export interface ReflectionChatProps {
   /** Sends one student message and streams the reply; see KAIte/server/types.ts. */
   sendMessage: SendMessage;
   active?: boolean;
+  /** Tells the parent component when the user wants to end the reflection conversation. */
+  onRequestSummary: () => void;
 }
 
 export function ReflectionChat({ sessionId, sendMessage, active }: ReflectionChatProps) {
