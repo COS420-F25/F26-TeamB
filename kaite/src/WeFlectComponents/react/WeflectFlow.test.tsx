@@ -38,8 +38,16 @@ test("Does not display the summary when there is no log provided", async () => {
     expect(screen.queryByRole("heading", { name: /logs display/i })).not.toBeInTheDocument();
 });
 
+
+/**
+ * Tests whether user can click "Get detailed AI usage summary" button to request the AI usage summary.
+ *  This is at the end of the reflection conversation.
+ */
+test("User can request summary", () => {
+    render(<WeflectFlow server={mockServer} />);
 /**
  * Simulates clicking the "Get detailed AI usage summary" button.
- * This is at the end of the reflection conversation.
  */
 fireEvent.click(screen.getByRole("button", {name: "Get detailed AI usage summary"}));
+// expect(result);
+});
