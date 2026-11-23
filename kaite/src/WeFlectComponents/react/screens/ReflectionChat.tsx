@@ -19,7 +19,7 @@ export interface ReflectionChatProps {
   onRequestSummary: () => void;
 }
 
-export function ReflectionChat({ sessionId, sendMessage, active }: ReflectionChatProps) {
+export function ReflectionChat({ sessionId, sendMessage, active, onRequestSummary}: ReflectionChatProps) {
   const chat = useReflectionChat(sessionId, sendMessage);
 
   return (
@@ -28,6 +28,9 @@ export function ReflectionChat({ sessionId, sendMessage, active }: ReflectionCha
       <div className="leaf">
         <ChatLog turns={chat.turns} />
         <Composer disabled={chat.busy} onSend={chat.send} onSkip={chat.skip} />
+        <button type="button" className="btn primary" 
+          disabled={chat.busy || !sessionId} 
+          onClick={onRequestSummary}>Get detailed AI usage summary</button>
       </div>
     </Screen>
   );
