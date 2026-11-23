@@ -67,7 +67,7 @@ test('rejects unsupported file types without storing them', async () => {
   await userEvent.click(await screen.findByRole('button', { name: /reflection conversation/i }));
 
   const file = new File(['image'], 'photo.png', { type: 'image/png' });
-  await userEvent.upload(screen.getByLabelText(/choose file/i), file, { applyAccept: false });
+  await userEvent.upload(screen.getByLabelText(/choose file/i), file);
 
   expect(await screen.findByText(/unsupported file type/i)).toBeTruthy();
   expect(screen.queryByText('photo.png')).toBeNull();

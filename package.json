@@ -3,6 +3,11 @@
     "mdb-react-ui-kit": "^10.0.0"
   },
   "devDependencies": {
-    "@types/jest": "^30.0.0"
+    "@testing-library/jest-dom": "^8.0.0",
+    "@types/jest": "^30.0.0",
+    "jest": "^30.5.2",
+    "jest-environment-jsdom": "^30.5.2",
+    "ts-jest": "^29.4.15",
+    "typescript": "^6.0.3"
   }
 }
