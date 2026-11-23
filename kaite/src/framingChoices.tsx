@@ -4,11 +4,11 @@
 // wording comes from FRAMING_DIMENSIONS (src/framing.ts), which the system
 // prompt shares.
 
-import type { FramingDimension } from "./Logic/framingIndex.ts";
+import type { FramingDimension } from "./Logic/framingIndex";
 
 export interface LikertRowProps {
   dimension: FramingDimension;
-  /** Selected level, 1 to 5. */
+  /** Selected level, 1 to 3. */
   value: number;
   onChange: (level: number) => void;
 }
@@ -24,7 +24,7 @@ export function LikertRow({ dimension, value, onChange }: LikertRowProps) {
         {dimension.question}
       </legend>
       <div className="likert-scale">
-        {LEVELS.map((level) => (
+        {LEVELS.map((level,i) => (
           <label key={level} className="likert-opt">
             <input
               type="radio"
@@ -33,15 +33,8 @@ export function LikertRow({ dimension, value, onChange }: LikertRowProps) {
               checked={value === level}
               onChange={() => onChange(level)}
             />
-            <span>{level}</span>
+            <span>{dimension.anchors[ANCHORS[i]]}</span>
           </label>
-        ))}
-      </div>
-      <div className="likert-anchors">
-        {ANCHORS.map((key) => (
-          <span key={key} className={`anchor ${key}`}>
-            {dimension.anchors[key]}
-          </span>
         ))}
       </div>
     </fieldset>

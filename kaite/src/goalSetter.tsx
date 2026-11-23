@@ -15,7 +15,7 @@ export function CustomNote({ value, onChange }: CustomNoteProps) {
   return (
     <section className="panel soft framing-custom">
       <label htmlFor={id}>
-        <strong>Anything else about how you'd like this conversation to go?</strong> (optional)
+        <strong>What do you want to walk away with? KAIte will keep these in mind during the reflection and check in on them before wrapping up. Add up to 3.</strong> (optional)
       </label>
       {/* The server trims to the same limit (normalizeFraming). */}
       <textarea
