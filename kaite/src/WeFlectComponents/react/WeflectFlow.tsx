@@ -131,7 +131,10 @@ export function WeflectFlow({
         onStart={(framing) => void startReflection(framing)}
         onBack={() => go("profile")}
       />
-      <ReflectionChat active={screen === "chat"} sessionId={sessionId} sendMessage={server.sendMessage} />
+      <ReflectionChat active={screen === "chat"} sessionId={sessionId} sendMessage={server.sendMessage} 
+      onRequestSummary={() => {
+        // Conversation summary will generate here.
+      }}/>
     </>
   );
 }
