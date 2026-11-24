@@ -14,7 +14,7 @@ const mockServer: ReflectionServer = {
 };
 
 /**
- * Creating a mock conversation for testing without importing files.
+ * Mock conversation for testing without importing files.
  */
 const validLog: ConversationLog = { source: "unknown", conversations: [{
     id: "test-1",
