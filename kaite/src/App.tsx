@@ -1,5 +1,6 @@
-
 import React from 'react';
+import './App.css';
+import './WeFlectComponents/styles/kaite.css';
 import LoginScreen from './LoginScreen';
 import MainDashboardScreen from './MainDashboardScreen';
 import UploadAILogScreen from './UploadAILogScreen';
@@ -17,7 +18,9 @@ function App(): React.JSX.Element {
   ];
 
   return (
-    screenComponents[screenIndex]
+    <div>
+    {screenComponents[screenIndex]}
+    </div>
   );
 }
 
