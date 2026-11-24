@@ -29,6 +29,9 @@ function KaiteNavBar({ screenSetter }: KaiteNavBarProps): React.JSX.Element {
           <MDBNavbarItem>
             <MDBNavbarLink href="#chat-history">Chat History</MDBNavbarLink>
           </MDBNavbarItem>
+          <MDBNavbarItem onClick={() => {screenSetter(3)}}>
+            <MDBNavbarLink href="#goals">Goals</MDBNavbarLink>
+          </MDBNavbarItem>
           <MDBNavbarItem>
             <MDBNavbarLink href="#settings">Settings</MDBNavbarLink>
           </MDBNavbarItem>
