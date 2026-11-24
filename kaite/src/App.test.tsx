@@ -6,11 +6,11 @@ import { LOCAL_USERS_KEY } from './LoginScreen';
 
 const testUser = { email: 'test-user@test.com', password: 'password1234' };
 
-async function login(): Promise<void> {
+async function login(user: ReturnType<typeof userEvent.setup>): Promise<void> {
   window.localStorage.setItem(LOCAL_USERS_KEY, JSON.stringify([testUser]));
-  await userEvent.type(screen.getByLabelText(/email address/i), testUser.email);
-  await userEvent.type(screen.getByLabelText(/^password$/i), testUser.password);
-  await userEvent.click(screen.getByRole('button', { name: /^login$/i }));
+  await user.type(screen.getByLabelText(/email address/i), testUser.email);
+  await user.type(screen.getByLabelText(/^password$/i), testUser.password);
+  await user.click(screen.getByRole('button', { name: /^login$/i }));
 }
 
 beforeEach(() => {
@@ -40,15 +40,17 @@ test('shows an error for invalid login credentials', async () => {
 });
 
 test('shows the main dashboard after successful login', async () => {
+  const user = userEvent.setup({ applyAccept: false });
   render(<App />);
-  await login();
+  await login(user);
   expect(await screen.findByRole('button', { name: /reflection conversation/i })).toBeTruthy();
   expect(screen.getByText(/login successful/i)).toBeTruthy();
 });
 
 test('stores a valid JSON conversation log locally', async () => {
+  const user = userEvent.setup({ applyAccept: false });
   render(<App />);
-  await login();
+  await login(user);
   await userEvent.click(await screen.findByRole('button', { name: /reflection conversation/i }));
 
   const content = JSON.stringify({ messages: [{ text: 'Hello' }] });
@@ -62,12 +64,12 @@ test('stores a valid JSON conversation log locally', async () => {
 });
 
 test('rejects unsupported file types without storing them', async () => {
+  const user = userEvent.setup({ applyAccept: false });
   render(<App />);
-  await login();
-  await userEvent.click(await screen.findByRole('button', { name: /reflection conversation/i }));
+  await login(user);
+  await user.click(await screen.findByRole('button', { name: /reflection conversation/i }));
 
   const file = new File(['image'], 'photo.png', { type: 'image/png' });
-  const user = userEvent.setup({ applyAccept: false});
   await user.upload(screen.getByLabelText(/choose file/i), file);
 
   expect(await screen.findByText(/unsupported file type/i)).toBeTruthy();
@@ -76,8 +78,9 @@ test('rejects unsupported file types without storing them', async () => {
 });
 
 test('rejects malformed JSON files', async () => {
+  const user = userEvent.setup({ applyAccept: false });
   render(<App />);
-  await login();
+  await login(user);
   await userEvent.click(await screen.findByRole('button', { name: /reflection conversation/i }));
 
   const file = new File(['not json'], 'conversation.json', { type: 'application/json' });
