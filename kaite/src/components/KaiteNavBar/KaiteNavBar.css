@@ -1,0 +1,30 @@
+.main-navbar {
+  --main-surface: #f7f8f3;
+  --main-text: #252824;
+  --main-border: #c4c8bf;
+  background: var(--main-surface);
+  border-bottom: 1px solid var(--main-border);
+  color: var(--main-text);
+  font-family: 'Libre Franklin';
+  font-size: 12px;
+  font-weight: 600;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  .main-navbar {
+    --main-surface: #332d2d;
+    --main-text: #ffffff;
+    --main-border: #777171;
+  }
+}
+
+
+.main-navbar .navbar-brand,
+.main-navbar .nav-link {
+  color: var(--main-text) !important;
+}
+
+.main-navbar .navbar-nav {
+  gap: 1rem;
+}
