@@ -15,9 +15,11 @@ export interface ReflectionChatProps {
   /** Sends one student message and streams the reply; see KAIte/server/types.ts. */
   sendMessage: SendMessage;
   active?: boolean;
+  /** Tells the parent component when the user wants to end the reflection conversation. */
+  onRequestSummary: () => void;
 }
 
-export function ReflectionChat({ sessionId, sendMessage, active }: ReflectionChatProps) {
+export function ReflectionChat({ sessionId, sendMessage, active, onRequestSummary}: ReflectionChatProps) {
   const chat = useReflectionChat(sessionId, sendMessage);
 
   return (
@@ -26,6 +28,9 @@ export function ReflectionChat({ sessionId, sendMessage, active }: ReflectionCha
       <div className="leaf">
         <ChatLog turns={chat.turns} />
         <Composer disabled={chat.busy} onSend={chat.send} onSkip={chat.skip} />
+        <button type="button" className="btn primary" 
+          disabled={chat.busy || !sessionId} 
+          onClick={onRequestSummary}>Get detailed AI usage summary</button>
       </div>
     </Screen>
   );
