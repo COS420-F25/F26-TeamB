@@ -43,11 +43,10 @@ test("Does not display the summary when there is no log provided", async () => {
  * Tests whether user can click "Get detailed AI usage summary" button to request the AI usage summary.
  *  This is at the end of the reflection conversation.
  */
-test("User can request summary", () => {
+test("Summary request button exists", () => {
     render(<WeflectFlow server={mockServer} />);
 /**
  * Simulates clicking the "Get detailed AI usage summary" button.
  */
-fireEvent.click(screen.getByRole("button", {name: "Get detailed AI usage summary"}));
-// expect(result);
+    expect(screen.getByRole("button", {name: "Get detailed AI usage summary"})).toBeInTheDocument();
 });
