@@ -1,6 +1,8 @@
 import React from 'react';
+import { MDBContainer } from 'mdb-react-ui-kit';
 import './UploadAILogScreen.css';
 import FileUploadBox from './FileUploadBox';
+import KaiteNavBar from './components/KaiteNavBar/KaiteNavBar';
 
 interface uploadAILogScreenProps {
     screenSetter: React.Dispatch<React.SetStateAction<number>>;
@@ -14,21 +16,10 @@ function UploadAILogScreen({ screenSetter, messageSetter, message }: uploadAILog
     screenSetter(1);
   }
   return (
-    <div className="upload-screen">
-      {/* Navigation bar */}
-      <header className="upload-navbar">
-        <div className="upload-navbar-brand">KAIte</div>
-
-        <nav className="upload-navbar-links" aria-label="Main navigation">
-          <a href="#home">Home</a>
-          <a href="#chat-history">Chat history</a>
-          <a href="#settings">Settings</a>
-          <div className="upload-avatar" aria-label="User profile">
-            NM
-          </div>
-        </nav>
-      </header>
-
+    <>
+    {/* Navigation bar */}
+    <KaiteNavBar screenSetter={screenSetter} />
+    <MDBContainer fluid className="upload-screen">
       {/* Main content */}
       
       <main className="upload-main">
@@ -105,7 +96,8 @@ function UploadAILogScreen({ screenSetter, messageSetter, message }: uploadAILog
           </div>
         </footer>
       </main>
-    </div>
+    </MDBContainer>
+    </>
   );
 };
 
