@@ -53,7 +53,6 @@ test('stores a valid JSON conversation log locally', async () => {
 
   const content = JSON.stringify({ messages: [{ text: 'Hello' }] });
   const file = new File([content], 'conversationlog.json', { type: 'application/json' });
-  // const user = userEvent.setup({ applyAccept: false });
   await userEvent.upload(screen.getByLabelText(/choose file/i), file);
 
   expect(await screen.findByText('conversationlog.json')).toBeTruthy();
