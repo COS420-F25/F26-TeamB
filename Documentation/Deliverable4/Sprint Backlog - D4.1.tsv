@@ -1,0 +1,45 @@
+Title	URL	Status	Assignees	QC	Start date	End date (ready for QC by)	Deliverable / Sprint	Milestone	Dev QC	Priority
+Address D3 Domain Model feedback	https://github.com/COS420-F25/F26-TeamB/issues/279	Done	Nicholas-Munro	Co-Dev Lead / StephenM	13-Nov-26	16-Nov-26	D4	Deliverable 4		Urgent
+Translate WeFlect code to React and bring it in to the repo	https://github.com/COS420-F25/F26-TeamB/issues/269	Done	Nicholas-Munro	Lead Dev / Blarnix	14-Nov-26	16-Nov-26	D4	Deliverable 4	Co-Dev Lead / StephenM	Urgent
+"Create the individual DCD for the  ""View previous Kaite Conversation"" feature"	https://github.com/COS420-F25/F26-TeamB/issues/273	Done	Blarnix	Designer / NickM	13-Nov-26	18-Nov-26	D4	Deliverable 4		Urgent
+"User Story (19) ""As a user, I want to have a reflection agent ask me questions about my AI use so that I am prompted to think about and improve how I use AI over time."""	https://github.com/COS420-F25/F26-TeamB/issues/193	Done	Nicholas-Munro	Lead Dev / Blarnix	08-Nov-26	16-Nov-26	D4	Deliverable 4		High
+Write tests for US5 implementation	https://github.com/COS420-F25/F26-TeamB/issues/206	Done	stephenm05	Lead Dev / Blarnix	30-Oct-26	13-Nov-26	D4	Deliverable 4		High
+Test 3 - Invalid File Type Browser Storage	https://github.com/COS420-F25/F26-TeamB/issues/216	Done	hkniner	Lead Dev / Blarnix	30-Oct-26	10-Nov-26	D4	Deliverable 4	Co-Dev Lead / StephenM	High
+"User Story (5) ""As a user, I want to upload conversation logs from the AI models I already use, so that I don’t have to set up and learn a new model to utilize the reflection software."""	https://github.com/COS420-F25/F26-TeamB/issues/115	Done	Blarnix	Lead Dev / Blarnix	30-Oct-26	11-Nov-26	D4	Deliverable 4		High
+"Implement ""File Upload"""	https://github.com/COS420-F25/F26-TeamB/issues/209	Done	Blarnix	Co-Dev Lead / StephenM	30-Oct-26	10-Nov-26	D4	Deliverable 4	Dev / RyanS	High
+"Create coded mockup of ""Upload Log"" Screen"	https://github.com/COS420-F25/F26-TeamB/issues/211	Done	stephenm05	Lead Dev / Blarnix	30-Oct-26	10-Nov-26	D4	Deliverable 4		High
+Test 2 - User File Selection Cancellation	https://github.com/COS420-F25/F26-TeamB/issues/215	Done	ryanshorey	Lead Dev / Blarnix	30-Oct-26	10-Nov-26	D4	Deliverable 4	Co-Dev Lead / StephenM	High
+Export D4 Sprint Backlog after Sprint Planning Meeting	https://github.com/COS420-F25/F26-TeamB/issues/244	Done	Er3te	Co-PM / hkniner	08-Nov-26	10-Nov-26	D4	Deliverable 4		High
+Set up a meeting with the professor to scope your project's features for implementation in D4 and D5	https://github.com/COS420-F25/F26-TeamB/issues/246	Done	Er3te	Co-PM / hkniner	08-Nov-26	10-Nov-26	D4	Deliverable 4		High
+Participate in Project Scope meeting with the professor for D4 & D5	https://github.com/COS420-F25/F26-TeamB/issues/247	Done	"Blarnix, Er3te, hkniner, Nicholas-Munro, ryanshorey, stephenm05"	PM / Er3te	13-Nov-26	13-Nov-26	D4	Deliverable 4		High
+Create dev tasks for New Version of App	https://github.com/COS420-F25/F26-TeamB/issues/251	Done	"Blarnix, stephenm05"	PM / Er3te	08-Nov-26	13-Nov-26	D4	Deliverable 4		High
+Create Detailed Technical Design (DCD) tasks	https://github.com/COS420-F25/F26-TeamB/issues/252	Done	Er3te	Co-PM / hkniner	08-Nov-26	13-Nov-26	D4	Deliverable 4		High
+Create DCD Design Tasks for Each Feature	https://github.com/COS420-F25/F26-TeamB/issues/258	Done	Er3te	Co-PM / hkniner	08-Nov-26	16-Nov-26	D4	Deliverable 4		High
+Create DCD Narrative Dev Tasks	https://github.com/COS420-F25/F26-TeamB/issues/259	Done	"Blarnix, stephenm05"	PM / Er3te	08-Nov-26	16-Nov-26	D4	Deliverable 4		High
+Integrate the individual DCDs together as a team	https://github.com/COS420-F25/F26-TeamB/issues/270	Done	"Blarnix, Er3te, hkniner, Nicholas-Munro, ryanshorey, stephenm05"	Lead Dev / Blarnix	13-Nov-26	21-Nov-26	D4	Deliverable 4		High
+"Create the individual DCD for the ""View followup goals"" feature"	https://github.com/COS420-F25/F26-TeamB/issues/271	Done	stephenm05	Co-PM / hkniner	13-Nov-26	18-Nov-26	D4	Deliverable 4		High
+"Create the individual DCD for the ""View overall summary of prior AI conversations outside of KAIte"" feature"	https://github.com/COS420-F25/F26-TeamB/issues/274	Done	Er3te	Co-Dev Lead / StephenM	13-Nov-26	18-Nov-26	D4	Deliverable 4		High
+"Create the individual DCD for the ""Add error during conversation"" feature"	https://github.com/COS420-F25/F26-TeamB/issues/275	Done	ryanshorey	Lead Dev / Blarnix	13-Nov-26	18-Nov-26	D4	Deliverable 4		High
+"Create the individual DCD for the ""Respond to inserted error  "" & ""Edit error settings during conversation"" feature(s)"	https://github.com/COS420-F25/F26-TeamB/issues/276	Done	hkniner	Co-Dev Lead / StephenM	13-Nov-26	18-Nov-26	D4	Deliverable 4		High
+Begin D4 implementing error insertions in AI responses	https://github.com/COS420-F25/F26-TeamB/issues/265	Todo / Sprint Backlog	ryanshorey	Lead Dev / Blarnix	14-Nov-26	22-Nov-26	D4	Deliverable 4	Co-Dev Lead / StephenM	Medium
+Begin D4 implemention of framing choices for reflection conversation	https://github.com/COS420-F25/F26-TeamB/issues/267	Done	Nicholas-Munro	Co-PM / hkniner	14-Nov-26	22-Nov-26	D4	Deliverable 4	Dev / RyanS	Medium
+Create any D3 revision tasks needed	https://github.com/COS420-F25/F26-TeamB/issues/249	Done	Er3te	Co-PM / hkniner	08-Nov-26	13-Nov-26	D4	Deliverable 4		Medium
+Begin implemention of user being able to catch inserted errors	https://github.com/COS420-F25/F26-TeamB/issues/266	Done	hkniner	Lead Dev / Blarnix	14-Nov-26	22-Nov-26	D4	Deliverable 4	Dev / RyanS	Medium
+"Handle the ""Allow PRs to be taken over by a different dev if they’re past their QC deadline"" SR change/need solution"	https://github.com/COS420-F25/F26-TeamB/issues/256	Done	Blarnix	Co-Dev Lead / StephenM	08-Nov-26	21-Nov-26	D4	Deliverable 4		Medium
+Begin D4 implementing user-configurable goals following reflection conversation	https://github.com/COS420-F25/F26-TeamB/issues/264	Quality Checking	stephenm05	Lead Dev / Blarnix	14-Nov-26	22-Nov-26	D4	Deliverable 4	Co-PM / hkniner	Medium
+Begin D4 implementing external conversation(s) summary	https://github.com/COS420-F25/F26-TeamB/issues/268	Done	Er3te	Co-Dev Lead / StephenM	14-Nov-26	22-Nov-26	D4	Deliverable 4	Co-PM / hkniner	Medium
+Begin D4 implementing the ability to view previous reflection conversations	https://github.com/COS420-F25/F26-TeamB/issues/281	Todo / Sprint Backlog	Blarnix	Co-Dev Lead / StephenM	14-Nov-26	22-Nov-26	D4	Deliverable 4	Dev / RyanS	Medium
+Export Sprint Backlog after completion of D4 deliverable	https://github.com/COS420-F25/F26-TeamB/issues/254	60-90% done	Er3te	Co-PM / hkniner	08-Nov-26	24-Nov-26	D4	Deliverable 4		Low
+Fill in the D4 New Application contribution tables	https://github.com/COS420-F25/F26-TeamB/issues/263	Done	"Er3te, hkniner"	Co-PM / hkniner	13-Nov-26	23-Nov-26	D4	Deliverable 4		Low
+Upload [remaining] D4/D3 (revs) GitHub Documentation Archival	https://github.com/COS420-F25/F26-TeamB/issues/241	Done	Er3te	Co-PM / hkniner	08-Nov-26	22-Nov-26	D4	Deliverable 4		Low
+Export D4 Product Backlog at end of the deliverable	https://github.com/COS420-F25/F26-TeamB/issues/245	Done	Er3te	Co-PM / hkniner	08-Nov-26	23-Nov-26	D4	Deliverable 4		Low
+"User Story (6) ""As an authorized user, I want any sensitive personal information automatically removed from the conversations I upload, so that I can partake in the reflection process without worrying about privacy issues."""	https://github.com/COS420-F25/F26-TeamB/issues/116	Done	Er3te		14-Nov-26	14-Nov-26	D4	Deliverable 4		Low
+Participate in the D4 Sprint Review as a team	https://github.com/COS420-F25/F26-TeamB/issues/242	Done	Er3te	Co-PM / hkniner	08-Nov-26	22-Nov-26	D4	Deliverable 4		Low
+Submit D4 Assignment	https://github.com/COS420-F25/F26-TeamB/issues/243	In Progress	hkniner	PM / Er3te	08-Nov-26	22-Nov-26	D4	Deliverable 4		Low
+Connect all the DCD individual diagrams into an overall Design class/function diagram (DCD) (Optional)	https://github.com/COS420-F25/F26-TeamB/issues/257	Done	"Er3te, hkniner, Nicholas-Munro"	Lead Dev / Blarnix	08-Nov-26	20-Nov-26	D4	Deliverable 4		Low
+Record a video showing software progress for D4	https://github.com/COS420-F25/F26-TeamB/issues/261	Done	hkniner	Co-Dev Lead / StephenM	08-Nov-26	23-Nov-26	D4	Deliverable 4		Low
+Add suggestions from D3 feedback to the policies	https://github.com/COS420-F25/F26-TeamB/issues/277	Done	Er3te	Co-PM / hkniner	13-Nov-26	19-Nov-26	D4	Deliverable 4		Low
+Address D3 UCD small fix	https://github.com/COS420-F25/F26-TeamB/issues/278	Done	Er3te	Designer / NickM	13-Nov-26	19-Nov-26	D4	Deliverable 4		Low
+Address D3 software video process feedback	https://github.com/COS420-F25/F26-TeamB/issues/280	Done	hkniner	PM / Er3te	13-Nov-26	19-Nov-26	D4	Deliverable 4		Low
+Address REQ-07 Figma comment request	https://github.com/COS420-F25/F26-TeamB/issues/284	Done	Nicholas-Munro	PM / Er3te	14-Nov-26	17-Nov-26	D4	Deliverable 4		Low
+Update SRS doc (Optional)	https://github.com/COS420-F25/F26-TeamB/issues/286	Done	Er3te	Co-PM / hkniner	13-Nov-26	19-Nov-26	D4	Deliverable 4		Low
