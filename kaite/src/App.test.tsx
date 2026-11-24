@@ -53,6 +53,7 @@ test('stores a valid JSON conversation log locally', async () => {
 
   const content = JSON.stringify({ messages: [{ text: 'Hello' }] });
   const file = new File([content], 'conversationlog.json', { type: 'application/json' });
+  // const user = userEvent.setup({ applyAccept: false });
   await userEvent.upload(screen.getByLabelText(/choose file/i), file);
 
   expect(await screen.findByText('conversationlog.json')).toBeTruthy();
@@ -67,7 +68,8 @@ test('rejects unsupported file types without storing them', async () => {
   await userEvent.click(await screen.findByRole('button', { name: /reflection conversation/i }));
 
   const file = new File(['image'], 'photo.png', { type: 'image/png' });
-  await userEvent.upload(screen.getByLabelText(/choose file/i), file);
+  const user = userEvent.setup({ applyAccept: false});
+  await user.upload(screen.getByLabelText(/choose file/i), file);
 
   expect(await screen.findByText(/unsupported file type/i)).toBeTruthy();
   expect(screen.queryByText('photo.png')).toBeNull();
