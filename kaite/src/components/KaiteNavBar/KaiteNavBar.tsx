@@ -35,6 +35,9 @@ function KaiteNavBar({ screenSetter }: KaiteNavBarProps): React.JSX.Element {
           <MDBNavbarItem>
             <MDBNavbarLink href="#settings">Settings</MDBNavbarLink>
           </MDBNavbarItem>
+          <MDBNavbarItem onClick={() => {screenSetter(0)}}>
+            <MDBNavbarLink href="#log-out">Log Out</MDBNavbarLink>
+          </MDBNavbarItem>
           <MDBNavbarItem>
             <div className="main-avatar">{"NM"}</div>
           </MDBNavbarItem>
