@@ -23,8 +23,8 @@ function KaiteNavBar({ screenSetter }: KaiteNavBarProps): React.JSX.Element {
         <MDBNavbarNav 
         fullWidth={false}
         className="d-flex flex-row align-items-center ms-auto">
-          <MDBNavbarItem>
-            <MDBNavbarLink href="#home">Home</MDBNavbarLink>
+          <MDBNavbarItem onClick={() => {screenSetter(1)}}>
+            <MDBNavbarLink href="#home">Dashboard</MDBNavbarLink>
           </MDBNavbarItem>
           <MDBNavbarItem>
             <MDBNavbarLink href="#chat-history">Chat History</MDBNavbarLink>
