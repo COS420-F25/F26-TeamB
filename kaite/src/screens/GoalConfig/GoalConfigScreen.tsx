@@ -15,6 +15,7 @@ import { Goal, USER_GOALS_KEY, goalReviver } from './GoalConfigGlobals'
 import ScrollableGoalList from './ScrollableGoalList';
 import SelectedGoalPane from './SelectedGoalPane';
 import NewGoalPane from './NewGoalPane';
+import KaiteNavBar from '../../components/KaiteNavBar/KaiteNavBar';
 
 interface GoalConfigScreenProps {
     screenSetter: React.Dispatch<React.SetStateAction<number>>;
@@ -44,16 +45,9 @@ function GoalConfigScreen({ screenSetter, messageSetter, message }: GoalConfigSc
     }
     
     return (
+        <>
+        <KaiteNavBar screenSetter={screenSetter} />
         <MDBContainer fluid className="goal-config-page">
-        <header className="goal-config-navbar">
-            <div className="goal-config-navbar-brand">KAIte</div>
-            <nav className="goal-config-navbar-links" aria-label="Main navigation">
-            <a href="#home">Home</a>
-            <a href="#chat-history">Chat History</a>
-            <a href="#settings">Settings</a>
-            <div className="goal-config-avatar" aria-label="User profile">NM</div>
-            </nav>
-        </header>
 
         <MDBRow className="goal-config-body">
             <MDBCol md="4" lg="3" className="goal-config-list-col">
@@ -81,6 +75,7 @@ function GoalConfigScreen({ screenSetter, messageSetter, message }: GoalConfigSc
             </MDBCol>
         </MDBRow>
         </MDBContainer>
+        </>
     );
 }
 export default GoalConfigScreen;
