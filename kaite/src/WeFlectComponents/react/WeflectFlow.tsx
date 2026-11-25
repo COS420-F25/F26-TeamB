@@ -27,6 +27,8 @@ import { ReflectionChat } from "./screens/ReflectionChat";
 export type FlowScreen = "import" | "redact" | "profile" | "framing" | "chat";
 
 export interface WeflectFlowProps {
+    /** Enables intentional errors in AI responses */
+  practiceMode?: boolean;
   /**
    * The two server calls the chat needs. Use createWeflectServer() for a
    * weflect backend or supply your own; see KAIte/server/types.ts.
@@ -52,6 +54,7 @@ const NO_DECISIONS: RedactionDecisions = { preserveOriginals: [], redactPreserve
 
 export function WeflectFlow({
   server,
+  practiceMode = false,
   logConversation = true,
   exportGuideHref,
   onStartError = alertStartError,
@@ -132,6 +135,7 @@ export function WeflectFlow({
         onBack={() => go("profile")}
       />
       <ReflectionChat active={screen === "chat"} sessionId={sessionId} sendMessage={server.sendMessage} 
+      practiceMode={practiceMode}
       onRequestSummary={() => {
         // Conversation summary will generate here.
       }}/>

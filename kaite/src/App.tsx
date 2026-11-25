@@ -5,6 +5,7 @@ import LoginScreen from './LoginScreen';
 import MainDashboardScreen from './MainDashboardScreen';
 import UploadAILogScreen from './UploadAILogScreen';
 import GoalConfigScreen from './screens/GoalConfig/GoalConfigScreen';
+import PracticeModeScreen from './PracticeModeScreen';
 
 function App(): React.JSX.Element {
   const [message, setMessage] = React.useState<string>('');
@@ -14,7 +15,8 @@ function App(): React.JSX.Element {
     <LoginScreen screenSetter={setScreenIndex} messageSetter={setMessage} message={message} />,
     <MainDashboardScreen screenSetter={setScreenIndex} messageSetter={setMessage} message={message} />,
     <UploadAILogScreen screenSetter={setScreenIndex} messageSetter={setMessage} message={message} />,
-    <GoalConfigScreen screenSetter={setScreenIndex} messageSetter={setMessage} message={message} />
+    <GoalConfigScreen screenSetter={setScreenIndex} messageSetter={setMessage} message={message} />,
+    <PracticeModeScreen screenSetter={setScreenIndex} />
   ];
 
   return (
