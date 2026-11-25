@@ -17,10 +17,13 @@ export interface ReflectionChatProps {
   active?: boolean;
   /** Tells the parent component when the user wants to end the reflection conversation. */
   onRequestSummary: () => void;
+  /** Enables intentional errors during practice mode. */
+  practiceMode?: boolean;
 }
 
-export function ReflectionChat({ sessionId, sendMessage, active, onRequestSummary}: ReflectionChatProps) {
-  const chat = useReflectionChat(sessionId, sendMessage);
+export function ReflectionChat({ sessionId, sendMessage, active, onRequestSummary, practiceMode = false }: ReflectionChatProps) {
+  // Pass the practice mode setting to the reflection chat.
+  const chat = useReflectionChat(sessionId, sendMessage, practiceMode);
 
   return (
     // No .canvas here: .leaf gives a narrower reading column.

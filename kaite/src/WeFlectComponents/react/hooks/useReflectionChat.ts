@@ -8,6 +8,9 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import type { StreamEvent } from "../../logic/types";
 import type { SendMessage } from "../../server/types";
 import { KICKOFF_MESSAGE, SKIP_MESSAGE } from "../lib/messages";
+// Used to insert and record intentional errors during practice mode
+import { injectError } from "../../../errorInjector";
+import type { InjectedError } from "../../../errorInjector";
 
 export interface YouTurn {
   id: number;
@@ -26,6 +29,8 @@ export interface WeflectTurn {
   deferred: boolean;
   /** The request or stream failed; the body shows a plain retry message instead. */
   failed: boolean;
+  /** Stores the inserted error and its location for practice mode. */
+  injectedError?: InjectedError;
 }
 
 export type ChatTurnData = YouTurn | WeflectTurn;
@@ -64,7 +69,12 @@ export function applyStreamEvent(turn: WeflectTurn, event: StreamEvent): Weflect
  * idle. When it is set, the hidden kickoff turn is sent once; its reply (the
  * opening summary document) is shown all at once instead of streaming in.
  */
-export function useReflectionChat(sessionId: string | null, sendMessage: SendMessage): ReflectionChat {
+// Practice mode is optional so normal reflection chats stay unchanged.
+export function useReflectionChat(
+  sessionId: string | null,
+  sendMessage: SendMessage,
+  practiceMode: boolean = false
+): ReflectionChat {
   const [turns, setTurns] = useState<ChatTurnData[]>([]);
   const [busy, setBusy] = useState(false);
   const nextId = useRef(1);
@@ -99,6 +109,22 @@ export function useReflectionChat(sessionId: string | null, sendMessage: SendMes
       abortRef.current = controller;
       try {
         await sendRef.current(sessionId, text, (event) => updateReply((t) => applyStreamEvent(t, event)), controller.signal);
+        // Insert an intentional error after the AI finishes responding.
+        if (practiceMode && !controller.signal.aborted) {
+          updateReply((turn) => {
+            const result = injectError(turn.raw, {
+              enabled: true,
+              frequency: 0.5,
+              allowedTypes: ['factual'],
+            });
+
+            return {
+              ...turn,
+              raw: result.text,
+              injectedError: result.error,
+            };
+          });
+        }
       } catch (err) {
         if (controller.signal.aborted) return; // unmounted mid-stream
         updateReply((t) => ({ ...t, failed: true, deferred: false }));
@@ -107,7 +133,7 @@ export function useReflectionChat(sessionId: string | null, sendMessage: SendMes
         if (!controller.signal.aborted) setBusy(false);
       }
     },
-    [sessionId]
+    [sessionId, practiceMode]
   );
 
   // Kickoff. Scheduled on a timer that the cleanup cancels, so React

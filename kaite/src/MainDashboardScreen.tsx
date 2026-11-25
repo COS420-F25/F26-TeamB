@@ -194,7 +194,7 @@ function MainDashboardScreen({ screenSetter, messageSetter, message }: mainDashb
               <p className="main-small-text mb-3">
                 Catch them as you go to sharpen how you read AI output.
               </p>
-              <MDBBtn type="button" outline className="main-cta-btn">
+              <MDBBtn type="button" outline className="main-cta-btn" onClick={() => screenSetter(4)}>
                 PRACTICE SPOTTING AI ERRORS <MDBIcon fas icon="arrow-right" className="ms-1" />
               </MDBBtn>
               <div className="d-flex main-cta-meta mt-3">
