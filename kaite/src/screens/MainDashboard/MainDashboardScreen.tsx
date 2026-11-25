@@ -16,8 +16,7 @@ import {
   MDBInputGroup,
 } from 'mdb-react-ui-kit';
 import './MainDashboardScreen.css';
-import './components/KaiteNavBar/KaiteNavBar'
-import KaiteNavBar from './components/KaiteNavBar/KaiteNavBar';
+import KaiteNavBar from '../../components/KaiteNavBar/KaiteNavBar';
 
 interface ChatMessage {
   id: string;

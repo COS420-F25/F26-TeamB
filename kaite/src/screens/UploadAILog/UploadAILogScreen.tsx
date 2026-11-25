@@ -2,7 +2,7 @@ import React from 'react';
 import { MDBContainer } from 'mdb-react-ui-kit';
 import './UploadAILogScreen.css';
 import FileUploadBox from './FileUploadBox';
-import KaiteNavBar from './components/KaiteNavBar/KaiteNavBar';
+import KaiteNavBar from '../../components/KaiteNavBar/KaiteNavBar';
 
 interface uploadAILogScreenProps {
     screenSetter: React.Dispatch<React.SetStateAction<number>>;
