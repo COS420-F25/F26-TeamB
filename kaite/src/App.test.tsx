@@ -2,7 +2,7 @@ import { beforeEach, expect, test } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from './App';
-import { LOCAL_USERS_KEY } from './LoginScreen';
+import { LOCAL_USERS_KEY } from './screens/Login/LoginScreen';
 
 const testUser = { email: 'test-user@test.com', password: 'password1234' };
 

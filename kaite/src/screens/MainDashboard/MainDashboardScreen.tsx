@@ -16,6 +16,7 @@ import {
   MDBInputGroup,
 } from 'mdb-react-ui-kit';
 import './MainDashboardScreen.css';
+import KaiteNavBar from '../../components/KaiteNavBar/KaiteNavBar';
 
 interface ChatMessage {
   id: string;
@@ -113,27 +114,10 @@ function MainDashboardScreen({ screenSetter, messageSetter, message }: mainDashb
     screenSetter(2);
   }
   return (
+    <>
+    {/* ---------- Navbar ---------- */}
+    <KaiteNavBar screenSetter={screenSetter} />
     <MDBContainer fluid className="main-page">
-      {/* ---------- Navbar ---------- */}
-      <MDBNavbar light className="main-navbar px-4">
-        <MDBNavbarBrand className="fw-bold">KAIte</MDBNavbarBrand>
-        <MDBNavbarNav 
-        fullWidth={false}
-        className="d-flex flex-row align-items-center ms-auto">
-          <MDBNavbarItem>
-            <MDBNavbarLink href="#home">Home</MDBNavbarLink>
-          </MDBNavbarItem>
-          <MDBNavbarItem>
-            <MDBNavbarLink href="#chat-history">Chat History</MDBNavbarLink>
-          </MDBNavbarItem>
-          <MDBNavbarItem>
-            <MDBNavbarLink href="#settings">Settings</MDBNavbarLink>
-          </MDBNavbarItem>
-          <MDBNavbarItem>
-            <div className="main-avatar">{"NM"}</div>
-          </MDBNavbarItem>
-        </MDBNavbarNav>
-      </MDBNavbar>
       {message && <div className="login-toast" role="status" aria-live="polite">{message}</div>}
       {/* ---------- Hero ---------- */}
       <MDBRow className="main-hero">
@@ -314,6 +298,7 @@ function MainDashboardScreen({ screenSetter, messageSetter, message }: mainDashb
         ))}
       </MDBRow>
     </MDBContainer>
+    </>
   );
 };
 

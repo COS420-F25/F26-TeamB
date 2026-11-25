@@ -31,29 +31,6 @@
   }
 }
 
-/* Navbar */
-.goal-config-navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: var(--goal-surface);
-  border-bottom: 1px solid var(--goal-border);
-  padding: 0.75rem 1.5rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-}
-
-.goal-config-navbar-links {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.goal-config-navbar-links a {
-  color: var(--goal-text);
-  text-decoration: none;
-}
-
 .goal-config-avatar {
   width: 2.25rem;
   height: 2.25rem;

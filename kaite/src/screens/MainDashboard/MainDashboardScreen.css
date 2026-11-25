@@ -71,26 +71,6 @@
   }
 }
 
-/* ---------- Navbar ---------- */
-
-.main-navbar {
-  background: var(--main-surface);
-  border-bottom: 1px solid var(--main-border);
-  color: var(--main-text);
-  font-family: 'Libre Franklin';
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.main-navbar .navbar-brand,
-.main-navbar .nav-link {
-  color: var(--main-text) !important;
-}
-
-.main-navbar .navbar-nav {
-  gap: 1rem;
-}
-
 /* ---------- Avatars ---------- */
 
 .main-avatar {
